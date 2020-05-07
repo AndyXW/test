@@ -1,0 +1,990 @@
+
+@inproceedings{luoGraphDistillationAction2018,
+	title = {Graph {Distillation} for {Action} {Detection} with {Privileged} {Information}},
+	url = {http://alan.vision/eccv18_graph/},
+	abstract = {In this work, we propose a technique to tackle action detection in RGB-D videos under a challenging condition in which we have limited labeled data and partially observed training modalities. Common methods such as transfer learning do not take advantage of the rich information from extra modalities potentially available in the source domain dataset. On the other hand, previous work on cross-modality learning only focuses on a single domain or task. In this work, we propose a graph distillation method that incorporates rich privileged information from a large multi-modal dataset in the source domain, and shows an improved performance in the target domain where training data is scarce. Leveraging both a large-scale dataset and extra modalities, our method learns a better model on the target domain without needing to have access to these extra modalities during test time. We evaluate our approach on action classification and temporal action detection tasks in RGB-D videos, and show that our model outperforms the state-of-the-art by a large margin on the challenging NTU RGB+D and PKU-MMD benchmarks.},
+	booktitle = {European {Conference} on {Computer} {Vision} ({ECCV})},
+	author = {Luo, Zelun and Hsieh, Jun-Ting and Jiang, Lu and Niebles, Juan Carlos and Fei-Fei, Li},
+	year = {2018},
+	keywords = {1\_emphasis},
+	annote = {
+Problem to solve: There are abundant data from multiple modalities in source domain whilst there are limited data and subset of modalities during training in the target domain and only one modality during testing.
+Scenario: Take the RGB, depth, optical flow, skeleton as different modalities, try to predict the start and end moment of an action in a video clip and classify the actions as well. 
+Method: They proposed method "graph distillation" which is designed as a layer attachable to the original model and is end-to-end learnable.
+The main idea is to "distill" the knowledge dynamically from the multi modalities which have abundant information and then apply to the target domain and improve the performance of a single modality model.
+Rich experiments have proved the importance of the graph distillation layer and the results have beaten the SOTA in Action Detection in 2018.  
+Code released at link
+Link to our project: our model actually is also a graph distillation. For example the model V1, we set three oriented path from T1, T2, Flair to T1ce respectively. We haven't set hyper parameters to weight their contributions. But the graph distillation can adjust dynamically the weight of each path.
+}
+}
+
+@incollection{wuMultimodalGenerativeModels2018,
+	title = {Multimodal {Generative} {Models} for {Scalable} {Weakly}-{Supervised} {Learning}},
+	url = {http://papers.nips.cc/paper/7801-multimodal-generative-models-for-scalable-weakly-supervised-learning.pdf},
+	urldate = {2019-12-10},
+	booktitle = {Advances in {Neural} {Information} {Processing} {Systems} 31},
+	publisher = {Curran Associates, Inc.},
+	author = {Wu, Mike and Goodman, Noah},
+	editor = {Bengio, S. and Wallach, H. and Larochelle, H. and Grauman, K. and Cesa-Bianchi, N. and Garnett, R.},
+	year = {2018},
+	pages = {5575--5585},
+	file = {NIPS Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\EN72P6CI\\7801-multimodal-generative-models-for-scalable-weakly-supervised-learning.html:text/html;Wu_Goodman_2018_Multimodal Generative Models for Scalable Weakly-Supervised Learning.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\Z23NP2W3\\Wu_Goodman_2018_Multimodal Generative Models for Scalable Weakly-Supervised Learning.pdf:application/pdf}
+}
+
+@incollection{dorentHeteroModalVariationalEncoderDecoder2019,
+	address = {Cham},
+	title = {Hetero-{Modal} {Variational} {Encoder}-{Decoder} for {Joint} {Modality} {Completion} and {Segmentation}},
+	volume = {11765},
+	isbn = {978-3-030-32244-1 978-3-030-32245-8},
+	url = {http://link.springer.com/10.1007/978-3-030-32245-8_9},
+	abstract = {We propose a new deep learning method for tumour segmentation when dealing with missing imaging modalities. Instead of producing one network for each possible subset of observed modalities or using arithmetic operations to combine feature maps, our hetero-modal variational 3D encoder-decoder independently embeds all observed modalities into a shared latent representation. Missing data and tumour segmentation can be then generated from this embedding. In our scenario, the input is a random subset of modalities. We demonstrate that the optimisation problem can be seen as a mixture sampling. In addition to this, we introduce a new network architecture building upon both the 3D U-Net and the Multi-Modal Variational Auto-Encoder (MVAE). Finally, we evaluate our method on BraTS2018 using subsets of the imaging modalities as input. Our model outperforms the current state-of-the-art method for dealing with missing modalities and achieves similar performance to the subset-speciﬁc equivalent networks.},
+	language = {en},
+	urldate = {2019-11-18},
+	booktitle = {Medical {Image} {Computing} and {Computer} {Assisted} {Intervention} – {MICCAI} 2019},
+	publisher = {Springer International Publishing},
+	author = {Dorent, Reuben and Joutard, Samuel and Modat, Marc and Ourselin, Sébastien and Vercauteren, Tom},
+	editor = {Shen, Dinggang and Liu, Tianming and Peters, Terry M. and Staib, Lawrence H. and Essert, Caroline and Zhou, Sean and Yap, Pew-Thian and Khan, Ali},
+	year = {2019},
+	doi = {10.1007/978-3-030-32245-8_9},
+	keywords = {1\_emphasis, 4\_reference},
+	pages = {74--82},
+	annote = {Encoder-Decoder from 4 image modality inputs to learn a common latent space from which one can reconstruct the 4 image modalities and a segmentation map
+ 
+Can probably be applied to 2 modalities
+Can also learn it with the BraTS dataset, then fine-tune with our images, with only one or 2 modalities
+latent space is extracted from different levels before each downsampling, they encode means and variance of normal distributions
+ 
+loss: Dice, L2, KL, Cross-Entropy
+code: https://github.com/ReubenDo/U-HVED/blob/master/extensions/u\_hved/u\_hved\_net.py
+ 
+ 
+ },
+	file = {Dorent et al_2019_Hetero-Modal Variational Encoder-Decoder for Joint Modality Completion and.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\H9ZDD8L6\\H9ZDD8L6.pdf:application/pdf}
+}
+
+@inproceedings{valindriaMultimodalLearningUnpaired2018,
+	title = {Multi-modal {Learning} from {Unpaired} {Images}: {Application} to {Multi}-organ {Segmentation} in {CT} and {MRI}},
+	shorttitle = {Multi-modal {Learning} from {Unpaired} {Images}},
+	doi = {10.1109/WACV.2018.00066},
+	abstract = {Convolutional neural networks have been widely used in medical image segmentation. The amount of training data strongly determines the overall performance. Most approaches are applied for a single imaging modality, e.g., brain MRI. In practice, it is often difficult to acquire sufficient training data of a certain imaging modality. The same anatomical structures, however, may be visible in different modalities such as major organs on abdominal CT and MRI. In this work, we investigate the effectiveness of learning from multiple modalities to improve the segmentation accuracy on each individual modality. We study the feasibility of using a dual-stream encoder-decoder architecture to learn modality-independent, and thus, generalisable and robust features. All of our MRI and CT data are unpaired, which means they are obtained from different subjects and not registered to each other. Experiments show that multi-modal learning can improve overall accuracy over modality-specific training. Results demonstrate that information across modalities can in particular improve performance on varying structures such as the spleen.},
+	booktitle = {2018 {IEEE} {Winter} {Conference} on {Applications} of {Computer} {Vision} ({WACV})},
+	author = {Valindria, Vanya V. and Pawlowski, Nick and Rajchl, Martin and Lavdas, Ioannis and Aboagye, Eric O. and Rockall, Andrea G. and Rueckert, Daniel and Glocker, Ben},
+	month = mar,
+	year = {2018},
+	note = {ISSN: null},
+	keywords = {anatomical structure, biological organs, Biomedical imaging, biomedical MRI, brain MRI, Computed tomography, computerised tomography, convolutional neural networks, CT, Decoding, dualstream encoder-decoder, image segmentation, Image segmentation, imaging modality, learning (artificial intelligence), Magnetic resonance imaging, medical image processing, medical image segmentation, modality-specific training, MRI, multimodal learning, neural nets, Training, unpaired images},
+	pages = {547--556},
+	file = {IEEE Xplore Abstract Record:C\:\\Users\\loic-razer\\Zotero\\storage\\5J7DAD3H\\8354170.html:text/html;Valindria et al_2018_Multi-modal Learning from Unpaired Images.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\3CNAI7BY\\Valindria et al_2018_Multi-modal Learning from Unpaired Images.pdf:application/pdf}
+}
+
+@article{chartsiasMultimodalMRSynthesis2018,
+	title = {Multimodal {MR} {Synthesis} via {Modality}-{Invariant} {Latent} {Representation}},
+	volume = {37},
+	issn = {1558-254X},
+	doi = {10.1109/TMI.2017.2764326},
+	abstract = {We propose a multi-input multi-output fully convolutional neural network model for MRI synthesis. The model is robust to missing data, as it benefits from, but does not require, additional input modalities. The model is trained end-to-end, and learns to embed all input modalities into a shared modality-invariant latent space. These latent representations are then combined into a single fused representation, which is transformed into the target output modality with a learnt decoder. We avoid the need for curriculum learning by exploiting the fact that the various input modalities are highly correlated. We also show that by incorporating information from segmentation masks the model can both decrease its error and generate data with synthetic lesions. We evaluate our model on the ISLES and BRATS data sets and demonstrate statistically significant improvements over state-of-the-art methods for single input tasks. This improvement increases further when multiple input modalities are used, demonstrating the benefits of learning a common latent space, again resulting in a statistically significant improvement over the current best method. Finally, we demonstrate our approach on non skull-stripped brain images, producing a statistically significant improvement over the previous best method. Code is made publicly available at https://github.com/agis85/multimodal\_brain\_synthesis.},
+	number = {3},
+	journal = {IEEE Transactions on Medical Imaging},
+	author = {Chartsias, Agisilaos and Joyce, Thomas and Giuffrida, Mario Valerio and Tsaftaris, Sotirios A.},
+	month = mar,
+	year = {2018},
+	keywords = {biomedical MRI, Decoding, image segmentation, Image segmentation, learning (artificial intelligence), medical image processing, Algorithms, Biological neural networks, brain, Brain, convolution, curriculum learning, end-to-end training, feedforward neural nets, Humans, Image Processing, Computer-Assisted, image representation, latent representations, latent space learning, machine learning, Machine Learning, Magnetic Resonance Imaging, magnetic resonance imaging (MRI), modality-invariant latent representation, MRI synthesis, multi-modality fusion, multiinput multioutput fully convolutional neural network model, Multimodal Imaging, multimodal MR synthesis, multiple input modalities, Neural network, Neural Networks (Computer), Robustness, segmentation masks, shared modality-invariant latent space, single fused representation, single input tasks, statistical analysis, target output modality},
+	pages = {803--814},
+	file = {IEEE Xplore Abstract Record:C\:\\Users\\loic-razer\\Zotero\\storage\\SV467IZK\\8071026.html:text/html;Chartsias et al_2018_Multimodal MR Synthesis via Modality-Invariant Latent Representation.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\RRFT9KWN\\Chartsias et al_2018_Multimodal MR Synthesis via Modality-Invariant Latent Representation.pdf:application/pdf}
+}
+
+@article{varsavskyPIMMSPermutationInvariant2018,
+	title = {{PIMMS}: {Permutation} {Invariant} {Multi}-{Modal} {Segmentation}},
+	shorttitle = {{PIMMS}},
+	url = {http://arxiv.org/abs/1807.06537},
+	abstract = {In a research context, image acquisition will often involve a pre-defined static protocol and the data will be of high quality. If we are to build applications that work in hospitals without significant operational changes in care delivery, algorithms should be designed to cope with the available data in the best possible way. In a clinical environment, imaging protocols are highly flexible, with MRI sequences commonly missing appropriate sequence labeling (e.g. T1, T2, FLAIR). To this end we introduce PIMMS, a Permutation Invariant Multi-Modal Segmentation technique that is able to perform inference over sets of MRI scans without using modality labels. We present results which show that our convolutional neural network can, in some settings, outperform a baseline model which utilizes modality labels, and achieve comparable performance otherwise.},
+	urldate = {2019-12-10},
+	journal = {arXiv:1807.06537 [cs]},
+	author = {Varsavsky, Thomas and Eaton-Rosen, Zach and Sudre, Carole H. and Nachev, Parashkev and Cardoso, M. Jorge},
+	month = jul,
+	year = {2018},
+	note = {arXiv: 1807.06537},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition},
+	annote = {Comment: Accepted at the 4th Workshop on Deep Learning in Medical Image Analysis held at MICCAI2018},
+	file = {arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\DHKMPK36\\1807.html:text/html;Varsavsky et al_2018_PIMMS.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\NPVGDV42\\Varsavsky et al_2018_PIMMS.pdf:application/pdf}
+}
+
+@inproceedings{havaeiHeMISHeteroModalImage2016,
+	address = {Cham},
+	series = {Lecture {Notes} in {Computer} {Science}},
+	title = {{HeMIS}: {Hetero}-{Modal} {Image} {Segmentation}},
+	isbn = {978-3-319-46723-8},
+	shorttitle = {{HeMIS}},
+	doi = {10.1007/978-3-319-46723-8_54},
+	abstract = {We introduce a deep learning image segmentation framework that is extremely robust to missing imaging modalities. Instead of attempting to impute or synthesize missing data, the proposed approach learns, for each modality, an embedding of the input image into a single latent vector space for which arithmetic operations (such as taking the mean) are well defined. Points in that space, which are averaged over modalities available at inference time, can then be further processed to yield the desired segmentation. As such, any combinatorial subset of available modalities can be provided as input, without having to learn a combinatorial number of imputation models. Evaluated on two neurological MRI datasets (brain tumors and MS lesions), the approach yields state-of-the-art segmentation results when provided with all modalities; moreover, its performance degrades remarkably gracefully when modalities are removed, significantly more so than alternative mean-filling or other synthesis approaches.},
+	language = {en},
+	booktitle = {Medical {Image} {Computing} and {Computer}-{Assisted} {Intervention} – {MICCAI} 2016},
+	publisher = {Springer International Publishing},
+	author = {Havaei, Mohammad and Guizard, Nicolas and Chapados, Nicolas and Bengio, Yoshua},
+	editor = {Ourselin, Sebastien and Joskowicz, Leo and Sabuncu, Mert R. and Unal, Gozde and Wells, William},
+	year = {2016},
+	keywords = {Convolutional neural networks, Data abstraction, Data imputation, Deep learning, Multi-modal, Segmentation, 1\_emphasis},
+	pages = {469--477},
+	file = {Havaei et al_2016_HeMIS.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\SZHND2ST\\Havaei et al_2016_HeMIS.pdf:application/pdf}
+}
+
+@article{chenSynergisticImageFeature2019,
+	title = {Synergistic {Image} and {Feature} {Adaptation}: {Towards} {Cross}-{Modality} {Domain} {Adaptation} for {Medical} {Image} {Segmentation}},
+	shorttitle = {Synergistic {Image} and {Feature} {Adaptation}},
+	url = {http://arxiv.org/abs/1901.08211},
+	abstract = {This paper presents a novel unsupervised domain adaptation framework, called Synergistic Image and Feature Adaptation (SIFA), to effectively tackle the problem of domain shift. Domain adaptation has become an important and hot topic in recent studies on deep learning, aiming to recover performance degradation when applying the neural networks to new testing domains. Our proposed SIFA is an elegant learning diagram which presents synergistic fusion of adaptations from both image and feature perspectives. In particular, we simultaneously transform the appearance of images across domains and enhance domain-invariance of the extracted features towards the segmentation task. The feature encoder layers are shared by both perspectives to grasp their mutual benefits during the end-to-end learning procedure. Without using any annotation from the target domain, the learning of our unified model is guided by adversarial losses, with multiple discriminators employed from various aspects. We have extensively validated our method with a challenging application of cross-modality medical image segmentation of cardiac structures. Experimental results demonstrate that our SIFA model recovers the degraded performance from 17.2\% to 73.0\%, and outperforms the state-of-the-art methods by a significant margin.},
+	urldate = {2019-12-10},
+	journal = {arXiv:1901.08211 [cs]},
+	author = {Chen, Cheng and Dou, Qi and Chen, Hao and Qin, Jing and Heng, Pheng-Ann},
+	month = jun,
+	year = {2019},
+	note = {arXiv: 1901.08211},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition},
+	annote = {Comment: AAAI 2019 (oral)},
+	file = {arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\KW9UHT2A\\1901.html:text/html;Chen et al_2019_Synergistic Image and Feature Adaptation.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\E68QLRI5\\Chen et al_2019_Synergistic Image and Feature Adaptation.pdf:application/pdf}
+}
+
+@inproceedings{ouyangDataEfficientUnsupervised2019,
+	address = {Cham},
+	series = {Lecture {Notes} in {Computer} {Science}},
+	title = {Data {Efficient} {Unsupervised} {Domain} {Adaptation} {For} {Cross}-modality {Image} {Segmentation}},
+	isbn = {978-3-030-32245-8},
+	doi = {10.1007/978-3-030-32245-8_74},
+	abstract = {Deep learning models trained on medical images from a source domain (e.g.e.g. e.g. imaging modality) often fail when deployed on images from a different target domain, despite imaging common anatomical structures. Deep unsupervised domain adaptation (UDA) aims to improve the performance of a deep neural network model on a target domain, using solely unlabelled target domain data and labelled source domain data. However, current state-of-the-art methods exhibit reduced performance when target data is scarce. In this work, we introduce a new data efficient UDA method for multi-domain medical image segmentation. The proposed method combines a novel VAE-based feature prior matching, which is data-efficient, and domain adversarial training to learn a shared domain-invariant latent space which is exploited during segmentation. Our method is evaluated on a public multi-modality cardiac image segmentation dataset by adapting from the labelled source domain (3D MRI) to the unlabelled target domain (3D CT). We show that by using only one single unlabelled 3D CT scan, the proposed architecture outperforms the state-of-the-art in the same setting. Finally, we perform ablation studies on prior matching and domain adversarial training to shed light on the theoretical grounding of the proposed method.},
+	language = {en},
+	booktitle = {Medical {Image} {Computing} and {Computer} {Assisted} {Intervention} – {MICCAI} 2019},
+	publisher = {Springer International Publishing},
+	author = {Ouyang, Cheng and Kamnitsas, Konstantinos and Biffi, Carlo and Duan, Jinming and Rueckert, Daniel},
+	editor = {Shen, Dinggang and Liu, Tianming and Peters, Terry M. and Staib, Lawrence H. and Essert, Caroline and Zhou, Sean and Yap, Pew-Thian and Khan, Ali},
+	year = {2019},
+	pages = {669--677},
+	file = {Ouyang et al_2019_Data Efficient Unsupervised Domain Adaptation For Cross-modality Image.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\BL23A93W\\Ouyang et al_2019_Data Efficient Unsupervised Domain Adaptation For Cross-modality Image.pdf:application/pdf}
+}
+
+@inproceedings{yangUnsupervisedDomainAdaptation2019,
+	address = {Cham},
+	series = {Lecture {Notes} in {Computer} {Science}},
+	title = {Unsupervised {Domain} {Adaptation} via {Disentangled} {Representations}: {Application} to {Cross}-{Modality} {Liver} {Segmentation}},
+	isbn = {978-3-030-32245-8},
+	shorttitle = {Unsupervised {Domain} {Adaptation} via {Disentangled} {Representations}},
+	doi = {10.1007/978-3-030-32245-8_29},
+	abstract = {A deep learning model trained on some labeled data from a certain source domain generally performs poorly on data from different target domains due to domain shifts. Unsupervised domain adaptation methods address this problem by alleviating the domain shift between the labeled source data and the unlabeled target data. In this work, we achieve cross-modality domain adaptation, i.e. between CT and MRI images, via disentangled representations. Compared to learning a one-to-one mapping as the state-of-art CycleGAN, our model recovers a many-to-many mapping between domains to capture the complex cross-domain relations. It preserves semantic feature-level information by finding a shared content space instead of a direct pixelwise style transfer. Domain adaptation is achieved in two steps. First, images from each domain are embedded into two spaces, a shared domain-invariant content space and a domain-specific style space. Next, the representation in the content space is extracted to perform a task. We validated our method on a cross-modality liver segmentation task, to train a liver segmentation model on CT images that also performs well on MRI. Our method achieved Dice Similarity Coefficient (DSC) of 0.81, outperforming a CycleGAN-based method of 0.72. Moreover, our model achieved good generalization to joint-domain learning, in which unpaired data from different modalities are jointly learned to improve the segmentation performance on each individual modality. Lastly, under a multi-modal target domain with significant diversity, our approach exhibited the potential for diverse image generation and remained effective with DSC of 0.74 on multi-phasic MRI while the CycleGAN-based method performed poorly with a DSC of only 0.52.},
+	language = {en},
+	booktitle = {Medical {Image} {Computing} and {Computer} {Assisted} {Intervention} – {MICCAI} 2019},
+	publisher = {Springer International Publishing},
+	author = {Yang, Junlin and Dvornek, Nicha C. and Zhang, Fan and Chapiro, Julius and Lin, MingDe and Duncan, James S.},
+	editor = {Shen, Dinggang and Liu, Tianming and Peters, Terry M. and Staib, Lawrence H. and Essert, Caroline and Zhou, Sean and Yap, Pew-Thian and Khan, Ali},
+	year = {2019},
+	pages = {255--263},
+	file = {Yang et al_2019_Unsupervised Domain Adaptation via Disentangled Representations.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\CF4I69ZU\\Yang et al_2019_Unsupervised Domain Adaptation via Disentangled Representations.pdf:application/pdf}
+}
+
+@article{hoffmanCyCADACycleConsistentAdversarial,
+	title = {{CyCADA}: {Cycle}-{Consistent} {Adversarial} {Domain} {Adaptation}},
+	abstract = {Domain adaptation is critical for success in new, unseen environments. Adversarial adaptation models have shown tremendous progress towards adapting to new environments by focusing either on discovering domain invariant representations or by mapping between unpaired image domains. While feature space methods are difﬁcult to interpret and sometimes fail to capture pixel-level and low-level domain shifts, image space methods sometimes fail to incorporate high level semantic knowledge relevant for the end task. We propose a model which adapts between domains using both generative image space alignment and latent representation space alignment. Our approach, Cycle-Consistent Adversarial Domain Adaptation (CyCADA), guides transfer between domains according to a speciﬁc discriminatively trained task and avoids divergence by enforcing consistency of the relevant semantics before and after adaptation. We evaluate our method on a variety of visual recognition and prediction settings, including digit classiﬁcation and semantic segmentation of road scenes, advancing state-of-the-art performance for unsupervised adaptation from synthetic to real world driving domains.},
+	language = {en},
+	author = {Hoffman, Judy and Tzeng, Eric and Park, Taesung and Zhu, Jun-Yan and Isola, Phillip and Saenko, Kate and Efros, Alexei A and Darrell, Trevor},
+	pages = {10},
+	file = {Hoffman et al_CyCADA.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\FIRCGKQG\\Hoffman et al_CyCADA.pdf:application/pdf}
+}
+
+@incollection{liuCoupledGenerativeAdversarial2016,
+	title = {Coupled {Generative} {Adversarial} {Networks}},
+	url = {http://papers.nips.cc/paper/6544-coupled-generative-adversarial-networks.pdf},
+	urldate = {2019-12-10},
+	booktitle = {Advances in {Neural} {Information} {Processing} {Systems} 29},
+	publisher = {Curran Associates, Inc.},
+	author = {Liu, Ming-Yu and Tuzel, Oncel},
+	editor = {Lee, D. D. and Sugiyama, M. and Luxburg, U. V. and Guyon, I. and Garnett, R.},
+	year = {2016},
+	pages = {469--477},
+	file = {NIPS Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\W7GT95EL\\6544-coupled-generative-adversarial-networks.html:text/html;Liu_Tuzel_2016_Coupled Generative Adversarial Networks.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\WKJ6TNBB\\Liu_Tuzel_2016_Coupled Generative Adversarial Networks.pdf:application/pdf}
+}
+
+@incollection{yuanUnifiedAttentionalGenerative2019,
+	address = {Cham},
+	title = {Unified {Attentional} {Generative} {Adversarial} {Network} for {Brain} {Tumor} {Segmentation} from {Multimodal} {Unpaired} {Images}},
+	volume = {11766},
+	isbn = {978-3-030-32247-2 978-3-030-32248-9},
+	url = {http://link.springer.com/10.1007/978-3-030-32248-9_26},
+	abstract = {In medical applications, the same anatomical structures may be observed in multiple modalities despite the diﬀerent image characteristics. Currently, most deep models for multimodal segmentation rely on paired registered images. However, multimodal paired registered images are diﬃcult to obtain in many cases. Therefore, developing a model that can segment the target objects from diﬀerent modalities with unpaired images is signiﬁcant for many clinical applications. In this work, we propose a novel two-stream translation and segmentation uniﬁed attentional generative adversarial network (UAGAN), which can perform any-to-any image modality translation and segment the target objects simultaneously in the case where two or more modalities are available. The translation stream is used to capture modality-invariant features of the target anatomical structures. In addition, to focus on segmentation-related features, we add attentional blocks to extract valuable features from the translation stream. Experiments on three-modality brain tumor segmentation indicate that UAGAN outperforms the existing methods in most cases.},
+	language = {en},
+	urldate = {2019-11-25},
+	booktitle = {Medical {Image} {Computing} and {Computer} {Assisted} {Intervention} – {MICCAI} 2019},
+	publisher = {Springer International Publishing},
+	author = {Yuan, Wenguang and Wei, Jia and Wang, Jiabing and Ma, Qianli and Tasdizen, Tolga},
+	editor = {Shen, Dinggang and Liu, Tianming and Peters, Terry M. and Staib, Lawrence H. and Essert, Caroline and Zhou, Sean and Yap, Pew-Thian and Khan, Ali},
+	year = {2019},
+	doi = {10.1007/978-3-030-32248-9_26},
+	pages = {229--237},
+	annote = {GAN based
+From one modality, learn another modality and a segmentation.
+ 
+Generator: Inputs -{\textgreater} Image + target modality (as a one-hot vector)
+                 Encoder - Decoder with attentional blocks in the upsampling stages of the decoder
+                 Outputs -{\textgreater} Fake Image + segmentation
+Discriminator: Input -{\textgreater} Fake image
+                      Output -{\textgreater} which modality? and Fake or Real?
+ 
+Generator is trained in two different phase:
+- the forward phase when it generates the fake image modality and the segmentation map
+- the backward phase when from the fake image, it tries to recover the original image + seg map
+ },
+	file = {Yuan et al_2019_Unified Attentional Generative Adversarial Network for Brain Tumor Segmentation.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\H6MMBETZ\\Yuan et al_2019_Unified Attentional Generative Adversarial Network for Brain Tumor Segmentation.pdf:application/pdf}
+}
+
+@incollection{huangAugGANCrossDomain2018,
+	address = {Cham},
+	title = {{AugGAN}: {Cross} {Domain} {Adaptation} with {GAN}-{Based} {Data} {Augmentation}},
+	volume = {11213},
+	isbn = {978-3-030-01239-7 978-3-030-01240-3},
+	shorttitle = {{AugGAN}},
+	url = {http://link.springer.com/10.1007/978-3-030-01240-3_44},
+	abstract = {Deep learning based image-to-image translation methods aim at learning the joint distribution of the two domains and ﬁnding transformations between them. Despite recent GAN (Generative Adversarial Network) based methods have shown compelling results, they are prone to fail at preserving image-objects and maintaining translation consistency, which reduces their practicality on tasks such as generating largescale training data for diﬀerent domains. To address this problem, we purpose a structure-aware image-to-image translation network, which is composed of encoders, generators, discriminators and parsing nets for the two domains, respectively, in a uniﬁed framework. The purposed network generates more visually plausible images compared to competing methods on diﬀerent image-translation tasks. In addition, we quantitatively evaluate diﬀerent methods by training Faster-RCNN and YOLO with datasets generated from the image-translation results and demonstrate signiﬁcant improvement on the detection accuracies by using the proposed image-object preserving network.},
+	language = {en},
+	urldate = {2019-12-10},
+	booktitle = {Computer {Vision} – {ECCV} 2018},
+	publisher = {Springer International Publishing},
+	author = {Huang, Sheng-Wei and Lin, Che-Tsung and Chen, Shu-Ping and Wu, Yen-Yi and Hsu, Po-Hao and Lai, Shang-Hong},
+	editor = {Ferrari, Vittorio and Hebert, Martial and Sminchisescu, Cristian and Weiss, Yair},
+	year = {2018},
+	doi = {10.1007/978-3-030-01240-3_44},
+	pages = {731--744},
+	file = {Huang et al_2018_AugGAN.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\GV29ILBW\\Huang et al_2018_AugGAN.pdf:application/pdf}
+}
+
+@inproceedings{fidonScalableMultimodalConvolutional2017,
+	address = {Cham},
+	series = {Lecture {Notes} in {Computer} {Science}},
+	title = {Scalable {Multimodal} {Convolutional} {Networks} for {Brain} {Tumour} {Segmentation}},
+	isbn = {978-3-319-66179-7},
+	doi = {10.1007/978-3-319-66179-7_33},
+	abstract = {Brain tumour segmentation plays a key role in computer-assisted surgery. Deep neural networks have increased the accuracy of automatic segmentation significantly, however these models tend to generalise poorly to different imaging modalities than those for which they have been designed, thereby limiting their applications. For example, a network architecture initially designed for brain parcellation of monomodal T1 MRI can not be easily translated into an efficient tumour segmentation network that jointly utilises T1, T1c, Flair and T2 MRI. To tackle this, we propose a novel scalable multimodal deep learning architecture using new nested structures that explicitly leverage deep features within or across modalities. This aims at making the early layers of the architecture structured and sparse so that the final architecture becomes scalable to the number of modalities. We evaluate the scalable architecture for brain tumour segmentation and give evidence of its regularisation effect compared to the conventional concatenation approach.},
+	language = {en},
+	booktitle = {Medical {Image} {Computing} and {Computer} {Assisted} {Intervention} − {MICCAI} 2017},
+	publisher = {Springer International Publishing},
+	author = {Fidon, Lucas and Li, Wenqi and Garcia-Peraza-Herrera, Luis C. and Ekanayake, Jinendra and Kitchen, Neil and Ourselin, Sebastien and Vercauteren, Tom},
+	editor = {Descoteaux, Maxime and Maier-Hein, Lena and Franz, Alfred and Jannin, Pierre and Collins, D. Louis and Duchesne, Simon},
+	year = {2017},
+	pages = {285--293},
+	file = {Fidon et al_2017_Scalable Multimodal Convolutional Networks for Brain Tumour Segmentation.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\DAYDR2U6\\Fidon et al_2017_Scalable Multimodal Convolutional Networks for Brain Tumour Segmentation.pdf:application/pdf}
+}
+
+@article{guptaCrossModalDistillation2015,
+	title = {Cross {Modal} {Distillation} for {Supervision} {Transfer}},
+	url = {http://arxiv.org/abs/1507.00448},
+	abstract = {In this work we propose a technique that transfers supervision between images from different modalities. We use learned representations from a large labeled modality as a supervisory signal for training representations for a new unlabeled paired modality. Our method enables learning of rich representations for unlabeled modalities and can be used as a pre-training procedure for new modalities with limited labeled data. We show experimental results where we transfer supervision from labeled RGB images to unlabeled depth and optical flow images and demonstrate large improvements for both these cross modal supervision transfers. Code, data and pre-trained models are available at https://github.com/s-gupta/fast-rcnn/tree/distillation},
+	urldate = {2019-12-19},
+	journal = {arXiv:1507.00448 [cs]},
+	author = {Gupta, Saurabh and Hoffman, Judy and Malik, Jitendra},
+	month = nov,
+	year = {2015},
+	note = {arXiv: 1507.00448},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition},
+	annote = {利用RGB的模态训练好的FastRCNN来训练深度图片的模型，实验做的比较仔细，意图很明确。
+模型的蒸馏方法与我的相近，也是分成两条分支，在最后的特征层使之尽量相似，但是用的是L2 loss。
+ },
+	file = {Gupta et al_2015_Cross Modal Distillation for Supervision Transfer.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\IC7H2SAX\\IC7H2SAX.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\M6U3HK2P\\1507.html:text/html}
+}
+
+@article{parkFEEDFeaturelevelEnsemble2019,
+	title = {{FEED}: {Feature}-level {Ensemble} for {Knowledge} {Distillation}},
+	shorttitle = {{FEED}},
+	url = {http://arxiv.org/abs/1909.10754},
+	abstract = {Knowledge Distillation (KD) aims to transfer knowledge in a teacher-student framework, by providing the predictions of the teacher network to the student network in the training stage to help the student network generalize better. It can use either a teacher with high capacity or \{an\} ensemble of multiple teachers. However, the latter is not convenient when one wants to use feature-map-based distillation methods. For a solution, this paper proposes a versatile and powerful training algorithm named FEature-level Ensemble for knowledge Distillation (FEED), which aims to transfer the ensemble knowledge using multiple teacher networks. We introduce a couple of training algorithms that transfer ensemble knowledge to the student at the feature map level. Among the feature-map-based distillation methods, using several non-linear transformations in parallel for transferring the knowledge of the multiple teacher\{s\} helps the student find more generalized solutions. We name this method as parallel FEED, andexperimental results on CIFAR-100 and ImageNet show that our method has clear performance enhancements, without introducing any additional parameters or computations at test time. We also show the experimental results of sequentially feeding teacher's information to the student, hence the name sequential FEED, and discuss the lessons obtained. Additionally, the empirical results on measuring the reconstruction errors at the feature map give hints for the enhancements.},
+	urldate = {2019-12-19},
+	journal = {arXiv:1909.10754 [cs]},
+	author = {Park, SeongUk and Kwak, Nojun},
+	month = sep,
+	year = {2019},
+	note = {arXiv: 1909.10754},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition, Computer Science - Artificial Intelligence, Computer Science - Machine Learning},
+	annote = {一般的知识蒸馏方法都在输出层进行约束，这篇文章提出在特征层就进行约束。
+ },
+	annote = {Comment: 7 pages},
+	file = {Park_Kwak_2019_FEED.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\RSMYZUA8\\Park_Kwak_2019_FEED.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\65GPLYAR\\1909.html:text/html}
+}
+
+@article{leeStochasticitySkipConnections2019,
+	title = {Stochasticity and skip connections improve knowledge transfer},
+	url = {https://openreview.net/forum?id=HklA93NYwS},
+	abstract = {Deep neural networks have achieved state-of-the-art performance in various fields, but they have to be scaled down to be used for real-world applications. As a means to reduce the size of a neural...},
+	urldate = {2019-12-19},
+	author = {Lee, Kwangjin and Nguyen, Luong Trung and Shim, Byonghyo},
+	month = sep,
+	year = {2019},
+	annote = {利用类似Residual block的结构，skip connection来对知识蒸馏时的老师模型的强化。类似多种途径的ensemble效果。},
+	file = {Lee et al_2019_Stochasticity and skip connections improve knowledge transfer.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\KD3IH36V\\Lee et al_2019_Stochasticity and skip connections improve knowledge transfer.pdf:application/pdf;Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\RECLPG45\\forum.html:text/html}
+}
+
+@article{chenOnlineKnowledgeDistillation2019,
+	title = {Online {Knowledge} {Distillation} with {Diverse} {Peers}},
+	url = {http://arxiv.org/abs/1912.00350},
+	abstract = {Distillation is an effective knowledge-transfer technique that uses predicted distributions of a powerful teacher model as soft targets to train a less-parameterized student model. A pre-trained high capacity teacher, however, is not always available. Recently proposed online variants use the aggregated intermediate predictions of multiple student models as targets to train each student model. Although group-derived targets give a good recipe for teacher-free distillation, group members are homogenized quickly with simple aggregation functions, leading to early saturated solutions. In this work, we propose Online Knowledge Distillation with Diverse peers (OKDDip), which performs two-level distillation during training with multiple auxiliary peers and one group leader. In the first-level distillation, each auxiliary peer holds an individual set of aggregation weights generated with an attention-based mechanism to derive its own targets from predictions of other auxiliary peers. Learning from distinct target distributions helps to boost peer diversity for effectiveness of group-based distillation. The second-level distillation is performed to transfer the knowledge in the ensemble of auxiliary peers further to the group leader, i.e., the model used for inference. Experimental results show that the proposed framework consistently gives better performance than state-of-the-art approaches without sacrificing training or inference complexity, demonstrating the effectiveness of the proposed two-level distillation framework.},
+	urldate = {2019-12-19},
+	journal = {arXiv:1912.00350 [cs, stat]},
+	author = {Chen, Defang and Mei, Jian-Ping and Wang, Can and Feng, Yan and Chen, Chun},
+	month = dec,
+	year = {2019},
+	note = {arXiv: 1912.00350},
+	keywords = {Computer Science - Machine Learning, Statistics - Machine Learning},
+	annote = {知识蒸馏通常需要一个性能较好的老师模型生成soft targets来训练学生模型。但不是每次都能有这么好的老师模型的，所以近年来提出了很多由多个学生模型共同进步的方法，可以避免使用老师模型，但是如果设计的不好，这些学生模型会快速趋同，因此本文提出了一种解决方法。},
+	file = {Chen et al_2019_Online Knowledge Distillation with Diverse Peers.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\E3TQEYFK\\Chen et al_2019_Online Knowledge Distillation with Diverse Peers.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\B55MDJNW\\1912.html:text/html}
+}
+
+@article{yangModelCompressionTwostage2019,
+	title = {Model {Compression} with {Two}-stage {Multi}-teacher {Knowledge} {Distillation} for {Web} {Question} {Answering} {System}},
+	url = {http://arxiv.org/abs/1910.08381},
+	abstract = {Deep pre-training and fine-tuning models (such as BERT and OpenAI GPT) have demonstrated excellent results in question answering areas. However, due to the sheer amount of model parameters, the inference speed of these models is very slow. How to apply these complex models to real business scenarios becomes a challenging but practical problem. Previous model compression methods usually suffer from information loss during the model compression procedure, leading to inferior models compared with the original one. To tackle this challenge, we propose a Two-stage Multi-teacher Knowledge Distillation (TMKD for short) method for web Question Answering system. We first develop a general Q{\textbackslash}\&A distillation task for student model pre-training, and further fine-tune this pre-trained student model with multi-teacher knowledge distillation on downstream tasks (like Web Q{\textbackslash}\&A task, MNLI, SNLI, RTE tasks from GLUE), which effectively reduces the overfitting bias in individual teacher models, and transfers more general knowledge to the student model. The experiment results show that our method can significantly outperform the baseline methods and even achieve comparable results with the original teacher models, along with substantial speedup of model inference.},
+	urldate = {2019-12-19},
+	journal = {arXiv:1910.08381 [cs]},
+	author = {Yang, Ze and Shou, Linjun and Gong, Ming and Lin, Wutao and Jiang, Daxin},
+	month = oct,
+	year = {2019},
+	note = {arXiv: 1910.08381},
+	keywords = {Computer Science - Computation and Language},
+	annote = {Comment: Accepted by WSDM 2020},
+	file = {Yang et al_2019_Model Compression with Two-stage Multi-teacher Knowledge Distillation for Web.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\YQ5X3QIM\\Yang et al_2019_Model Compression with Two-stage Multi-teacher Knowledge Distillation for Web.pdf:application/pdf}
+}
+
+@article{zhangDeepMutualLearning2017,
+	title = {Deep {Mutual} {Learning}},
+	url = {http://arxiv.org/abs/1706.00384},
+	abstract = {Model distillation is an effective and widely used technique to transfer knowledge from a teacher to a student network. The typical application is to transfer from a powerful large network or ensemble to a small network, that is better suited to low-memory or fast execution requirements. In this paper, we present a deep mutual learning (DML) strategy where, rather than one way transfer between a static pre-defined teacher and a student, an ensemble of students learn collaboratively and teach each other throughout the training process. Our experiments show that a variety of network architectures benefit from mutual learning and achieve compelling results on CIFAR-100 recognition and Market-1501 person re-identification benchmarks. Surprisingly, it is revealed that no prior powerful teacher network is necessary -- mutual learning of a collection of simple student networks works, and moreover outperforms distillation from a more powerful yet static teacher.},
+	urldate = {2019-12-19},
+	journal = {arXiv:1706.00384 [cs]},
+	author = {Zhang, Ying and Xiang, Tao and Hospedales, Timothy M. and Lu, Huchuan},
+	month = jun,
+	year = {2017},
+	note = {arXiv: 1706.00384},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition, 1\_emphasis},
+	annote = {Comment: 10 pages, 4 figures},
+	file = {Zhang et al_2017_Deep Mutual Learning.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\9EY9LFD4\\9EY9LFD4.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\YI6PL7IW\\1706.html:text/html}
+}
+
+@article{ruderKnowledgeAdaptationTeaching2017,
+	title = {Knowledge {Adaptation}: {Teaching} to {Adapt}},
+	shorttitle = {Knowledge {Adaptation}},
+	url = {http://arxiv.org/abs/1702.02052},
+	abstract = {Domain adaptation is crucial in many real-world applications where the distribution of the training data differs from the distribution of the test data. Previous Deep Learning-based approaches to domain adaptation need to be trained jointly on source and target domain data and are therefore unappealing in scenarios where models need to be adapted to a large number of domains or where a domain is evolving, e.g. spam detection where attackers continuously change their tactics. To fill this gap, we propose Knowledge Adaptation, an extension of Knowledge Distillation (Bucilua et al., 2006; Hinton et al., 2015) to the domain adaptation scenario. We show how a student model achieves state-of-the-art results on unsupervised domain adaptation from multiple sources on a standard sentiment analysis benchmark by taking into account the domain-specific expertise of multiple teachers and the similarities between their domains. When learning from a single teacher, using domain similarity to gauge trustworthiness is inadequate. To this end, we propose a simple metric that correlates well with the teacher's accuracy in the target domain. We demonstrate that incorporating high-confidence examples selected by this metric enables the student model to achieve state-of-the-art performance in the single-source scenario.},
+	urldate = {2019-12-19},
+	journal = {arXiv:1702.02052 [cs]},
+	author = {Ruder, Sebastian and Ghaffari, Parsa and Breslin, John G.},
+	month = feb,
+	year = {2017},
+	note = {arXiv: 1702.02052},
+	keywords = {Computer Science - Machine Learning, Computer Science - Computation and Language},
+	annote = {Comment: 11 pages, 4 figures, 2 tables},
+	file = {Ruder et al_2017_Knowledge Adaptation.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\N6GMDMSF\\Ruder et al_2017_Knowledge Adaptation.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\PVYTWTED\\1702.html:text/html}
+}
+
+@article{zhouNormalizationTrainingUNet2019,
+	title = {Normalization in {Training} {U}-{Net} for {2D} {Biomedical} {Semantic} {Segmentation}},
+	url = {http://arxiv.org/abs/1809.03783},
+	abstract = {2D biomedical semantic segmentation is important for robotic vision in surgery. Segmentation methods based on Deep Convolutional Neural Network (DCNN) can out-perform conventional methods in terms of both accuracy and levels of automation. One common issue in training a DCNN for biomedical semantic segmentation is the internal covariate shift where the training of convolutional kernels is encumbered by the distribution change of input features, hence both the training speed and performance are decreased. Batch Normalization (BN) is the first proposed method for addressing internal covariate shift and is widely used. Instance Normalization (IN) and Layer Normalization (LN) have also been proposed. Group Normalization (GN) is proposed more recently and has not yet been applied to 2D biomedical semantic segmentation, however, no specific validations on GN were given. Most DCNNs for biomedical semantic segmentation adopt BN as the normalization method by default, without reviewing its performance. In this paper, four normalization methods - BN, IN, LN and GN are compared in details, specifically for 2D biomedical semantic segmentation. U-Net is adopted as the basic DCNN structure. Three datasets regarding the Right Ventricle (RV), aorta, and Left Ventricle (LV) are used for the validation. The results show that detailed subdivision of the feature map, i.e. GN with a large group number or IN, achieves higher accuracy. This accuracy improvement mainly comes from better model generalization. Codes are uploaded and maintained at Xiao-Yun Zhou's Github.},
+	urldate = {2019-12-21},
+	journal = {arXiv:1809.03783 [cs]},
+	author = {Zhou, Xiao-Yun and Yang, Guang-Zhong},
+	month = jan,
+	year = {2019},
+	note = {arXiv: 1809.03783},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition},
+	annote = {不同的Norm方法在脑瘤分割中的效果
+
+BN   BatchNorm
+IN    InstanceNorm
+GN   GroupNorm
+LN    LayerNorm
+},
+	file = {Zhou_Yang_2019_Normalization in Training U-Net for 2D Biomedical Semantic Segmentation.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\MNSM4VRV\\Zhou_Yang_2019_Normalization in Training U-Net for 2D Biomedical Semantic Segmentation.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\YQM3T648\\1809.html:text/html}
+}
+
+@article{xueSegANAdversarialNetwork2018,
+	title = {{SegAN}: {Adversarial} {Network} with {Multi}-scale \${L}\_1\$ {Loss} for {Medical} {Image} {Segmentation}},
+	volume = {16},
+	issn = {1539-2791, 1559-0089},
+	shorttitle = {{SegAN}},
+	url = {http://arxiv.org/abs/1706.01805},
+	doi = {10.1007/s12021-018-9377-x},
+	abstract = {Inspired by classic generative adversarial networks (GAN), we propose a novel end-to-end adversarial neural network, called SegAN, for the task of medical image segmentation. Since image segmentation requires dense, pixel-level labeling, the single scalar real/fake output of a classic GAN's discriminator may be ineffective in producing stable and sufficient gradient feedback to the networks. Instead, we use a fully convolutional neural network as the segmentor to generate segmentation label maps, and propose a novel adversarial critic network with a multi-scale \$L\_1\$ loss function to force the critic and segmentor to learn both global and local features that capture long- and short-range spatial relationships between pixels. In our SegAN framework, the segmentor and critic networks are trained in an alternating fashion in a min-max game: The critic takes as input a pair of images, (original\_image \$*\$ predicted\_label\_map, original\_image \$*\$ ground\_truth\_label\_map), and then is trained by maximizing a multi-scale loss function; The segmentor is trained with only gradients passed along by the critic, with the aim to minimize the multi-scale loss function. We show that such a SegAN framework is more effective and stable for the segmentation task, and it leads to better performance than the state-of-the-art U-net segmentation method. We tested our SegAN method using datasets from the MICCAI BRATS brain tumor segmentation challenge. Extensive experimental results demonstrate the effectiveness of the proposed SegAN with multi-scale loss: on BRATS 2013 SegAN gives performance comparable to the state-of-the-art for whole tumor and tumor core segmentation while achieves better precision and sensitivity for Gd-enhance tumor core segmentation; on BRATS 2015 SegAN achieves better performance than the state-of-the-art in both dice score and precision.},
+	number = {3-4},
+	urldate = {2019-12-22},
+	journal = {Neuroinformatics},
+	author = {Xue, Yuan and Xu, Tao and Zhang, Han and Long, Rodney and Huang, Xiaolei},
+	month = oct,
+	year = {2018},
+	note = {arXiv: 1706.01805},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition, 1\_emphasis},
+	pages = {383--392},
+	file = {Xue et al_2018_SegAN.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\NITN48HD\\Xue et al_2018_SegAN.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\8FGQ4EBM\\1706.html:text/html}
+}
+
+@inproceedings{myronenko3DMRIBrain2018,
+	title = {{3D} {MRI} brain tumor segmentation using autoencoder regularization},
+	doi = {10.1007/978-3-030-11726-9_28},
+	abstract = {Automated segmentation of brain tumors from 3D magnetic resonance images (MRIs) is necessary for the diagnosis, monitoring, and treatment planning of the disease. Manual delineation practices require anatomical knowledge, are expensive, time consuming and can be inaccurate due to human error. Here, we describe a semantic segmentation network for tumor subregion segmentation from 3D MRIs based on encoder-decoder architecture. Due to a limited training dataset size, a variational auto-encoder branch is added to reconstruct the input image itself in order to regularize the shared decoder and impose additional constraints on its layers. The current approach won 1st place in the BraTS 2018 challenge.},
+	booktitle = {{BrainLes}@{MICCAI}},
+	author = {Myronenko, Andriy},
+	year = {2018},
+	keywords = {Autoencoder, Encoder, Human error, Resonance, Variational principle, BraTS 2018, 1\_emphasis},
+	annote = {BraTS2018 Challenge Champion  NVIDIA},
+	file = {Myronenko_2018_3D MRI brain tumor segmentation using autoencoder regularization.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\DDVTNW8K\\Myronenko_2018_3D MRI brain tumor segmentation using autoencoder regularization.pdf:application/pdf}
+}
+
+@article{bakasIdentifyingBestMachine2019,
+	title = {Identifying the {Best} {Machine} {Learning} {Algorithms} for {Brain} {Tumor} {Segmentation}, {Progression} {Assessment}, and {Overall} {Survival} {Prediction} in the {BRATS} {Challenge}},
+	url = {http://arxiv.org/abs/1811.02629},
+	abstract = {Gliomas are the most common primary brain malignancies, with different degrees of aggressiveness, variable prognosis and various heterogeneous histologic sub-regions, i.e., peritumoral edematous/invaded tissue, necrotic core, active and non-enhancing core. This intrinsic heterogeneity is also portrayed in their radio-phenotype, as their sub-regions are depicted by varying intensity profiles disseminated across multi-parametric magnetic resonance imaging (mpMRI) scans, reflecting varying biological properties. Their heterogeneous shape, extent, and location are some of the factors that make these tumors difficult to resect, and in some cases inoperable. The amount of resected tumor is a factor also considered in longitudinal scans, when evaluating the apparent tumor for potential diagnosis of progression. Furthermore, there is mounting evidence that accurate segmentation of the various tumor sub-regions can offer the basis for quantitative image analysis towards prediction of patient overall survival. This study assesses the state-of-the-art machine learning (ML) methods used for brain tumor image analysis in mpMRI scans, during the last seven instances of the International Brain Tumor Segmentation (BraTS) challenge, i.e., 2012-2018. Specifically, we focus on i) evaluating segmentations of the various glioma sub-regions in pre-operative mpMRI scans, ii) assessing potential tumor progression by virtue of longitudinal growth of tumor sub-regions, beyond use of the RECIST/RANO criteria, and iii) predicting the overall survival from pre-operative mpMRI scans of patients that underwent gross total resection. Finally, we investigate the challenge of identifying the best ML algorithms for each of these tasks, considering that apart from being diverse on each instance of the challenge, the multi-institutional mpMRI BraTS dataset has also been a continuously evolving/growing dataset.},
+	urldate = {2019-12-24},
+	journal = {arXiv:1811.02629 [cs, stat]},
+	author = {Bakas, Spyridon and Reyes, Mauricio and Jakab, Andras and Bauer, Stefan and Rempfler, Markus and Crimi, Alessandro and Shinohara, Russell Takeshi and Berger, Christoph and Ha, Sung Min and Rozycki, Martin and Prastawa, Marcel and Alberts, Esther and Lipkova, Jana and Freymann, John and Kirby, Justin and Bilello, Michel and Fathallah-Shaykh, Hassan and Wiest, Roland and Kirschke, Jan and Wiestler, Benedikt and Colen, Rivka and Kotrotsou, Aikaterini and Lamontagne, Pamela and Marcus, Daniel and Milchenko, Mikhail and Nazeri, Arash and Weber, Marc-Andre and Mahajan, Abhishek and Baid, Ujjwal and Gerstner, Elizabeth and Kwon, Dongjin and Acharya, Gagan and Agarwal, Manu and Alam, Mahbubul and Albiol, Alberto and Albiol, Antonio and Albiol, Francisco J. and Alex, Varghese and Allinson, Nigel and Amorim, Pedro H. A. and Amrutkar, Abhijit and Anand, Ganesh and Andermatt, Simon and Arbel, Tal and Arbelaez, Pablo and Avery, Aaron and Azmat, Muneeza and B., Pranjal and Bai, W. and Banerjee, Subhashis and Barth, Bill and Batchelder, Thomas and Batmanghelich, Kayhan and Battistella, Enzo and Beers, Andrew and Belyaev, Mikhail and Bendszus, Martin and Benson, Eze and Bernal, Jose and Bharath, Halandur Nagaraja and Biros, George and Bisdas, Sotirios and Brown, James and Cabezas, Mariano and Cao, Shilei and Cardoso, Jorge M. and Carver, Eric N. and Casamitjana, Adrià and Castillo, Laura Silvana and Catà, Marcel and Cattin, Philippe and Cerigues, Albert and Chagas, Vinicius S. and Chandra, Siddhartha and Chang, Yi-Ju and Chang, Shiyu and Chang, Ken and Chazalon, Joseph and Chen, Shengcong and Chen, Wei and Chen, Jefferson W. and Chen, Zhaolin and Cheng, Kun and Choudhury, Ahana Roy and Chylla, Roger and Clérigues, Albert and Colleman, Steven and Colmeiro, Ramiro German Rodriguez and Combalia, Marc and Costa, Anthony and Cui, Xiaomeng and Dai, Zhenzhen and Dai, Lutao and Daza, Laura Alexandra and Deutsch, Eric and Ding, Changxing and Dong, Chao and Dong, Shidu and Dudzik, Wojciech and Eaton-Rosen, Zach and Egan, Gary and Escudero, Guilherme and Estienne, Théo and Everson, Richard and Fabrizio, Jonathan and Fan, Yong and Fang, Longwei and Feng, Xue and Ferrante, Enzo and Fidon, Lucas and Fischer, Martin and French, Andrew P. and Fridman, Naomi and Fu, Huan and Fuentes, David and Gao, Yaozong and Gates, Evan and Gering, David and Gholami, Amir and Gierke, Willi and Glocker, Ben and Gong, Mingming and González-Villá, Sandra and Grosges, T. and Guan, Yuanfang and Guo, Sheng and Gupta, Sudeep and Han, Woo-Sup and Han, Il Song and Harmuth, Konstantin and He, Huiguang and Hernández-Sabaté, Aura and Herrmann, Evelyn and Himthani, Naveen and Hsu, Winston and Hsu, Cheyu and Hu, Xiaojun and Hu, Xiaobin and Hu, Yan and Hu, Yifan and Hua, Rui and Huang, Teng-Yi and Huang, Weilin and Van Huffel, Sabine and Huo, Quan and HV, Vivek and Iftekharuddin, Khan M. and Isensee, Fabian and Islam, Mobarakol and Jackson, Aaron S. and Jambawalikar, Sachin R. and Jesson, Andrew and Jian, Weijian and Jin, Peter and Jose, V. Jeya Maria and Jungo, Alain and Kainz, B. and Kamnitsas, Konstantinos and Kao, Po-Yu and Karnawat, Ayush and Kellermeier, Thomas and Kermi, Adel and Keutzer, Kurt and Khadir, Mohamed Tarek and Khened, Mahendra and Kickingereder, Philipp and Kim, Geena and King, Nik and Knapp, Haley and Knecht, Urspeter and Kohli, Lisa and Kong, Deren and Kong, Xiangmao and Koppers, Simon and Kori, Avinash and Krishnamurthi, Ganapathy and Krivov, Egor and Kumar, Piyush and Kushibar, Kaisar and Lachinov, Dmitrii and Lambrou, Tryphon and Lee, Joon and Lee, Chengen and Lee, Yuehchou and Lee, M. and Lefkovits, Szidonia and Lefkovits, Laszlo and Levitt, James and Li, Tengfei and Li, Hongwei and Li, Wenqi and Li, Hongyang and Li, Xiaochuan and Li, Yuexiang and Li, Heng and Li, Zhenye and Li, Xiaoyu and Li, Zeju and Li, XiaoGang and Li, Wenqi and Lin, Zheng-Shen and Lin, Fengming and Lio, Pietro and Liu, Chang and Liu, Boqiang and Liu, Xiang and Liu, Mingyuan and Liu, Ju and Liu, Luyan and Llado, Xavier and Lopez, Marc Moreno and Lorenzo, Pablo Ribalta and Lu, Zhentai and Luo, Lin and Luo, Zhigang and Ma, Jun and Ma, Kai and Mackie, Thomas and Madabushi, Anant and Mahmoudi, Issam and Maier-Hein, Klaus H. and Maji, Pradipta and Mammen, C. P. and Mang, Andreas and Manjunath, B. S. and Marcinkiewicz, Michal and McDonagh, S. and McKenna, Stephen and McKinley, Richard and Mehl, Miriam and Mehta, Sachin and Mehta, Raghav and Meier, Raphael and Meinel, Christoph and Merhof, Dorit and Meyer, Craig and Miller, Robert and Mitra, Sushmita and Moiyadi, Aliasgar and Molina-Garcia, David and Monteiro, Miguel A. B. and Mrukwa, Grzegorz and Myronenko, Andriy and Nalepa, Jakub and Ngo, Thuyen and Nie, Dong and Ning, Holly and Niu, Chen and Nuechterlein, Nicholas K. and Oermann, Eric and Oliveira, Arlindo and Oliveira, Diego D. C. and Oliver, Arnau and Osman, Alexander F. I. and Ou, Yu-Nian and Ourselin, Sebastien and Paragios, Nikos and Park, Moo Sung and Paschke, Brad and Pauloski, J. Gregory and Pawar, Kamlesh and Pawlowski, Nick and Pei, Linmin and Peng, Suting and Pereira, Silvio M. and Perez-Beteta, Julian and Perez-Garcia, Victor M. and Pezold, Simon and Pham, Bao and Phophalia, Ashish and Piella, Gemma and Pillai, G. N. and Piraud, Marie and Pisov, Maxim and Popli, Anmol and Pound, Michael P. and Pourreza, Reza and Prasanna, Prateek and Prkovska, Vesna and Pridmore, Tony P. and Puch, Santi and Puybareau, Élodie and Qian, Buyue and Qiao, Xu and Rajchl, Martin and Rane, Swapnil and Rebsamen, Michael and Ren, Hongliang and Ren, Xuhua and Revanuru, Karthik and Rezaei, Mina and Rippel, Oliver and Rivera, Luis Carlos and Robert, Charlotte and Rosen, Bruce and Rueckert, Daniel and Safwan, Mohammed and Salem, Mostafa and Salvi, Joaquim and Sanchez, Irina and Sánchez, Irina and Santos, Heitor M. and Sartor, Emmett and Schellingerhout, Dawid and Scheufele, Klaudius and Scott, Matthew R. and Scussel, Artur A. and Sedlar, Sara and Serrano-Rubio, Juan Pablo and Shah, N. Jon and Shah, Nameetha and Shaikh, Mazhar and Shankar, B. Uma and Shboul, Zeina and Shen, Haipeng and Shen, Dinggang and Shen, Linlin and Shen, Haocheng and Shenoy, Varun and Shi, Feng and Shin, Hyung Eun and Shu, Hai and Sima, Diana and Sinclair, M. and Smedby, Orjan and Snyder, James M. and Soltaninejad, Mohammadreza and Song, Guidong and Soni, Mehul and Stawiaski, Jean and Subramanian, Shashank and Sun, Li and Sun, Roger and Sun, Jiawei and Sun, Kay and Sun, Yu and Sun, Guoxia and Sun, Shuang and Suter, Yannick R. and Szilagyi, Laszlo and Talbar, Sanjay and Tao, Dacheng and Tao, Dacheng and Teng, Zhongzhao and Thakur, Siddhesh and Thakur, Meenakshi H. and Tharakan, Sameer and Tiwari, Pallavi and Tochon, Guillaume and Tran, Tuan and Tsai, Yuhsiang M. and Tseng, Kuan-Lun and Tuan, Tran Anh and Turlapov, Vadim and Tustison, Nicholas and Vakalopoulou, Maria and Valverde, Sergi and Vanguri, Rami and Vasiliev, Evgeny and Ventura, Jonathan and Vera, Luis and Vercauteren, Tom and Verrastro, C. A. and Vidyaratne, Lasitha and Vilaplana, Veronica and Vivekanandan, Ajeet and Wang, Guotai and Wang, Qian and Wang, Chiatse J. and Wang, Weichung and Wang, Duo and Wang, Ruixuan and Wang, Yuanyuan and Wang, Chunliang and Wang, Guotai and Wen, Ning and Wen, Xin and Weninger, Leon and Wick, Wolfgang and Wu, Shaocheng and Wu, Qiang and Wu, Yihong and Xia, Yong and Xu, Yanwu and Xu, Xiaowen and Xu, Peiyuan and Yang, Tsai-Ling and Yang, Xiaoping and Yang, Hao-Yu and Yang, Junlin and Yang, Haojin and Yang, Guang and Yao, Hongdou and Ye, Xujiong and Yin, Changchang and Young-Moxon, Brett and Yu, Jinhua and Yue, Xiangyu and Zhang, Songtao and Zhang, Angela and Zhang, Kun and Zhang, Xuejie and Zhang, Lichi and Zhang, Xiaoyue and Zhang, Yazhuo and Zhang, Lei and Zhang, Jianguo and Zhang, Xiang and Zhang, Tianhao and Zhao, Sicheng and Zhao, Yu and Zhao, Xiaomei and Zhao, Liang and Zheng, Yefeng and Zhong, Liming and Zhou, Chenhong and Zhou, Xiaobing and Zhou, Fan and Zhu, Hongtu and Zhu, Jin and Zhuge, Ying and Zong, Weiwei and Kalpathy-Cramer, Jayashree and Farahani, Keyvan and Davatzikos, Christos and van Leemput, Koen and Menze, Bjoern},
+	month = apr,
+	year = {2019},
+	note = {arXiv: 1811.02629},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition, Computer Science - Artificial Intelligence, Computer Science - Machine Learning, Statistics - Machine Learning, BraTS 2018},
+	annote = {BraTS2018 Challenge 官方综述},
+	file = {Bakas et al_2019_Identifying the Best Machine Learning Algorithms for Brain Tumor Segmentation,.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\BS4I4MWC\\Bakas et al_2019_Identifying the Best Machine Learning Algorithms for Brain Tumor Segmentation,.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\JXAL3F3T\\1811.html:text/html}
+}
+
+@article{isenseeNoNewNet2019,
+	title = {No {New}-{Net}},
+	url = {http://arxiv.org/abs/1809.10483},
+	abstract = {In this paper we demonstrate the effectiveness of a well trained U-Net in the context of the BraTS 2018 challenge. This endeavour is particularly interesting given that researchers are currently besting each other with architectural modifications that are intended to improve the segmentation performance. We instead focus on the training process arguing that a well trained U-Net is hard to beat. Our baseline U-Net, which has only minor modifications and is trained with a large patch size and a Dice loss function indeed achieved competitive Dice scores on the BraTS2018 validation data. By incorporating additional measures such as region based training, additional training data, a simple postprocessing technique and a combination of loss functions, we obtain Dice scores of 77.88, 87.81 and 80.62, and Hausdorff Distances (95th percentile) of 2.90, 6.03 and 5.08 for the enhancing tumor, whole tumor and tumor core, respectively on the test data. This setup achieved rank two in BraTS2018, with more than 60 teams participating in the challenge.},
+	urldate = {2019-12-24},
+	journal = {arXiv:1809.10483 [cs]},
+	author = {Isensee, Fabian and Kickingereder, Philipp and Wick, Wolfgang and Bendszus, Martin and Maier-Hein, Klaus H.},
+	month = jan,
+	year = {2019},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition, BraTS 2018, 1\_emphasis, 4\_reference},
+	annote = {BraTS2018 Challenge 2nd place, nnNet},
+	file = {Isensee et al_2019_No New-Net.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\SNTUVPDL\\Isensee et al_2019_No New-Net.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\JJ9N8MB5\\1809.html:text/html}
+}
+
+@inproceedings{mckinleyEnsemblesDenselyConnectedCNNs2019,
+	address = {Cham},
+	series = {Lecture {Notes} in {Computer} {Science}},
+	title = {Ensembles of {Densely}-{Connected} {CNNs} with {Label}-{Uncertainty} for {Brain} {Tumor} {Segmentation}},
+	isbn = {978-3-030-11726-9},
+	doi = {10.1007/978-3-030-11726-9_40},
+	abstract = {We introduce a new family of classifiers based on our previous DeepSCAN architecture, in which densely connected blocks of dilated convolutions are embedded in a shallow U-net-style structure of down/upsampling and skip connections. These networks are trained using a newly designed loss function which models label noise and uncertainty. We present results on the testing dataset of the Multimodal Brain Tumor Segmentation Challenge 2018.},
+	language = {en},
+	booktitle = {Brainlesion: {Glioma}, {Multiple} {Sclerosis}, {Stroke} and {Traumatic} {Brain} {Injuries}},
+	publisher = {Springer International Publishing},
+	author = {McKinley, Richard and Meier, Raphael and Wiest, Roland},
+	editor = {Crimi, Alessandro and Bakas, Spyridon and Kuijf, Hugo and Keyvan, Farahani and Reyes, Mauricio and van Walsum, Theo},
+	year = {2019},
+	keywords = {BraTS 2018},
+	pages = {456--465},
+	annote = {BraTS2018 Challenge 3rd place
+
+Dilated Conv
+DeepSCAN Architecture
+Cascaded Non-brain-tissue Removal
+
+ },
+	file = {McKinley et al_2019_Ensembles of Densely-Connected CNNs with Label-Uncertainty for Brain Tumor.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\MMGLHQ28\\McKinley et al_2019_Ensembles of Densely-Connected CNNs with Label-Uncertainty for Brain Tumor.pdf:application/pdf}
+}
+
+@inproceedings{zhouLearningContextualAttentive2019,
+	address = {Cham},
+	series = {Lecture {Notes} in {Computer} {Science}},
+	title = {Learning {Contextual} and {Attentive} {Information} for {Brain} {Tumor} {Segmentation}},
+	isbn = {978-3-030-11726-9},
+	doi = {10.1007/978-3-030-11726-9_44},
+	abstract = {Thanks to the powerful representation learning ability, convolutional neural network has been an effective tool for the brain tumor segmentation task. In this work, we design multiple deep architectures of varied structures to learning contextual and attentive information, then ensemble the predictions of these models to obtain more robust segmentation results. In this way, the risk of overfitting in segmentation is reduced. Experimental results on validation dataset of BraTS 2018 challenge demonstrate that the proposed method can achieve good performance with average Dice scores of 0.8136, 0.9095 and 0.8651 for enhancing tumor, whole tumor and tumor core, respectively. The corresponding scores for BraTS 2018 testing set are 0.7775, 0.8842 and 0.7960, respectively, winning the third position in the BraTS 2018 competition among 64 participating teams.},
+	language = {en},
+	booktitle = {Brainlesion: {Glioma}, {Multiple} {Sclerosis}, {Stroke} and {Traumatic} {Brain} {Injuries}},
+	publisher = {Springer International Publishing},
+	author = {Zhou, Chenhong and Chen, Shengcong and Ding, Changxing and Tao, Dacheng},
+	editor = {Crimi, Alessandro and Bakas, Spyridon and Kuijf, Hugo and Keyvan, Farahani and Reyes, Mauricio and van Walsum, Theo},
+	year = {2019},
+	keywords = {BraTS 2018},
+	pages = {497--507},
+	annote = {BraTS2018 Challenge 4th place
+
+Cascade
+Multi-task
+
+ 
+ 
+ },
+	file = {Zhou et al_2019_Learning Contextual and Attentive Information for Brain Tumor Segmentation.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\AMJVX8ZA\\Zhou et al_2019_Learning Contextual and Attentive Information for Brain Tumor Segmentation.pdf:application/pdf}
+}
+
+@article{menzeMultimodalBrainTumor2015,
+	title = {The {Multimodal} {Brain} {Tumor} {Image} {Segmentation} {Benchmark} ({BRATS})},
+	volume = {34},
+	issn = {1558-254X},
+	doi = {10.1109/TMI.2014.2377694},
+	abstract = {In this paper we report the set-up and results of the Multimodal Brain Tumor Image Segmentation Benchmark (BRATS) organized in conjunction with the MICCAI 2012 and 2013 conferences. Twenty state-of-the-art tumor segmentation algorithms were applied to a set of 65 multi-contrast MR scans of low- and high-grade glioma patients - manually annotated by up to four raters - and to 65 comparable scans generated using tumor image simulation software. Quantitative evaluations revealed considerable disagreement between the human raters in segmenting various tumor sub-regions (Dice scores in the range 74\%-85\%), illustrating the difficulty of this task. We found that different algorithms worked best for different sub-regions (reaching performance comparable to human inter-rater variability), but that no single algorithm ranked in the top for all sub-regions simultaneously. Fusing several good algorithms using a hierarchical majority vote yielded segmentations that consistently ranked above all individual algorithms, indicating remaining opportunities for further methodological improvements. The BRATS image data and manual annotations continue to be publicly available through an online evaluation system as an ongoing benchmarking resource.},
+	number = {10},
+	journal = {IEEE Transactions on Medical Imaging},
+	author = {Menze, Bjoern H. and Jakab, Andras and Bauer, Stefan and Kalpathy-Cramer, Jayashree and Farahani, Keyvan and Kirby, Justin and Burren, Yuliya and Porz, Nicole and Slotboom, Johannes and Wiest, Roland and Lanczi, Levente and Gerstner, Elizabeth and Weber, Marc-André and Arbel, Tal and Avants, Brian B. and Ayache, Nicholas and Buendia, Patricia and Collins, D. Louis and Cordier, Nicolas and Corso, Jason J. and Criminisi, Antonio and Das, Tilak and Delingette, Hervé and Demiralp, Çağatay and Durst, Christopher R. and Dojat, Michel and Doyle, Senan and Festa, Joana and Forbes, Florence and Geremia, Ezequiel and Glocker, Ben and Golland, Polina and Guo, Xiaotao and Hamamci, Andac and Iftekharuddin, Khan M. and Jena, Raj and John, Nigel M. and Konukoglu, Ender and Lashkari, Danial and Mariz, José António and Meier, Raphael and Pereira, Sérgio and Precup, Doina and Price, Stephen J. and Raviv, Tammy Riklin and Reza, Syed M. S. and Ryan, Michael and Sarikaya, Duygu and Schwartz, Lawrence and Shin, Hoo-Chang and Shotton, Jamie and Silva, Carlos A. and Sousa, Nuno and Subbanna, Nagesh K. and Szekely, Gabor and Taylor, Thomas J. and Thomas, Owen M. and Tustison, Nicholas J. and Unal, Gozde and Vasseur, Flor and Wintermark, Max and Ye, Dong Hye and Zhao, Liang and Zhao, Binsheng and Zikic, Darko and Prastawa, Marcel and Reyes, Mauricio and Van Leemput, Koen},
+	month = oct,
+	year = {2015},
+	keywords = {Biomedical imaging, biomedical MRI, image segmentation, Image segmentation, medical image processing, MRI, Algorithms, brain, Brain, Humans, Magnetic Resonance Imaging, BraTS 2018, Benchmark, benchmark testing, Benchmark testing, Benchmarking, BRATS, Dice scores, Educational institutions, Glioma, glioma patients, hierarchical majority vote, human interrater variability, Lesions, MICCAI 2012 conference, MICCAI 2013 conference, multicontrast MR scans, Multimodal Brain Tumor Image Segmentation Benchmark, Neuroimaging, Oncology/tumor, tumor image simulation software, tumor segmentation algorithm, tumours},
+	pages = {1993--2024},
+	annote = {BraTS Challenge Benchmarks},
+	file = {Menze et al_2015_The Multimodal Brain Tumor Image Segmentation Benchmark (BRATS).pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\5H97CR63\\Menze et al_2015_The Multimodal Brain Tumor Image Segmentation Benchmark (BRATS).pdf:application/pdf;IEEE Xplore Abstract Record:C\:\\Users\\loic-razer\\Zotero\\storage\\7VVJJU6I\\6975210.html:text/html}
+}
+
+@incollection{kamnitsasDeepMedicBrainTumor2016,
+	address = {Cham},
+	title = {{DeepMedic} for {Brain} {Tumor} {Segmentation}},
+	volume = {10154},
+	isbn = {978-3-319-55523-2 978-3-319-55524-9},
+	url = {http://link.springer.com/10.1007/978-3-319-55524-9_14},
+	abstract = {Accurate automatic algorithms for the segmentation of brain tumours have the potential of improving disease diagnosis, treatment planning, as well as enabling large-scale studies of the pathology. In this work we employ DeepMedic [1], a 3D CNN architecture previously presented for lesion segmentation, which we further improve by adding residual connections. We also present a series of experiments on the BRATS 2015 training database for evaluating the robustness of the network when less training data are available or less ﬁlters are used, aiming to shed some light on requirements for employing such a system. Our method was further benchmarked on the BRATS 2016 Challenge, where it achieved very good performance despite the simplicity of the pipeline.},
+	language = {en},
+	urldate = {2019-12-25},
+	booktitle = {Brainlesion: {Glioma}, {Multiple} {Sclerosis}, {Stroke} and {Traumatic} {Brain} {Injuries}},
+	publisher = {Springer International Publishing},
+	author = {Kamnitsas, Konstantinos and Ferrante, Enzo and Parisot, Sarah and Ledig, Christian and Nori, Aditya V. and Criminisi, Antonio and Rueckert, Daniel and Glocker, Ben},
+	editor = {Crimi, Alessandro and Menze, Bjoern and Maier, Oskar and Reyes, Mauricio and Winzeck, Stefan and Handels, Heinz},
+	year = {2016},
+	doi = {10.1007/978-3-319-55524-9_14},
+	pages = {138--149},
+	annote = {医学图像分割领域的最经典的分割网络之一
+可能有些读者读完之后会有所抱怨：大部分和FCN网络或者DeepLab V1网络非常类似。但是在针对于文章的目标：脑部损伤分割，传统的图像分割算法效果不佳，然后作者提出了一些针对于当前医学图像问题的改进策略，从而达到更加state-of-art的分割结果。
+创新点通读全文，下面是我所认为的几个创新点：dense training 的方式。
+（1）采用 全卷积操作的方式，一次对多个邻接的像素点做出 dense prediction，从而三维节省计算代价。（2）能够处理医学分割问题中经常遇到的类不均衡问题。multi-scale 方法。采用dual CNN网络平行构架同时处理高/低分辨率的图像，文中解释这样也是一种在感受野和feature分辨率中均衡的一种方式（感觉着实有些勉强…）。3D FC-CRFs 将soft-segementation改善边缘细节信息（这点也是比较牵强…）。
+Dense inference + Dense training
+ 
+在传统的patch-wise分类任务中，输入的patch的尺寸和最后一层神经元的感受野相同，即得到的单个输出对应于patch中心像素点的分类结果。然而通过将全连接层替换成卷积层，就可以输入大于感受野的patch并得到 dense-inference，即一次性处理多个邻接的像素并得到逐项素的输出。 —— 这也是FCN中采用全卷积网络的本意。
+然而由于通常医学图像是一个三维体数据，将整个体数据一次性输入到网络中得到dense-inference并不现实。所以作者在individual patch和整个图像的dense-inference中引入一种中间策略：即采用大于感受野大小的patch在得到dense-inference结果的同时不会造成太大的内存消耗。而且采用这样的方法能够有效的解决分割中像素类分布不均衡的问题——从training set的前景区域和背景区域以50\%的相同概率采样patch。由于patch信息本身就含有内在的样本分布信息，得到的结果能够在sensitivity和specificity之间取得平衡
+3 . 建立更深的网络 —— 采用更小的卷积核 + Res-Block 结构 + Batch Norm 方法
+4 . Multi-scale 平行CNN构架
+还是一直提到的多尺度的图像分割的问题，如何同时利用局部和相对大范围的图像信息？
+上图中有两个通道：正常图像分辨率通道和低分辨率通道，这两个通道对应的输出感受野对应于不同分辨率的输入都是相同的17*17。假设低分辨率对应的图像采样率为F，则在设计网络输出的时候要确保上面通道的感受野shift F个单位等价于下面通道感受野shift 1个单位。所以可以对应设计两个通道的最后一个卷积层大小——注意分析最后一个卷积层的位置对应关系。
+这样的dual构架，能够保证正常分辨率通道中能够提取出很好的细节信息（局部信息），在低分辨率通道中能够保持较好的 high-level 信息（相对大范围信息）。因此能够使得分割信息的精确和定位信息的准确。
+5 . 3D FC-CRFs 进行空间正则化这部分的内容可以参照博主之前的博客，这样的处理对分割输出的改善起到了很好的作用。
+总结总体来说，文章对于处理医学图像中遇到的问题有了很好的应对，进而对网络有了一些小小的改进。总体来说，我认为我长最精彩的部分在于如何用 dense-training 方式解决医学图像中分割目标常常很小的类分布不平均的挑战。而且提出的dual平行网络构架也是多尺度分割的一种可以考虑的方式，不过略显笨重（对于不同的分辨率都要重新训练-预测），其显然不如R-CNN系列的多尺度策略来的更有效率。————————————————版权声明：本文为CSDN博主「JYZhang\_sh」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。原文链接：https://blog.csdn.net/JYZhang\_CVML/article/details/79519748},
+	annote = {Code : https://github.com/deepmedic/deepmedic},
+	file = {Kamnitsas 等。 - 2016 - DeepMedic for Brain Tumor Segmentation.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\KYK5IXK7\\Kamnitsas 等。 - 2016 - DeepMedic for Brain Tumor Segmentation.pdf:application/pdf}
+}
+
+@article{longLearningMultipleTasks2017,
+	title = {Learning {Multiple} {Tasks} with {Multilinear} {Relationship} {Networks}},
+	url = {http://arxiv.org/abs/1506.02117},
+	abstract = {Deep networks trained on large-scale data can learn transferable features to promote learning multiple tasks. Since deep features eventually transition from general to specific along deep networks, a fundamental problem of multi-task learning is how to exploit the task relatedness underlying parameter tensors and improve feature transferability in the multiple task-specific layers. This paper presents Multilinear Relationship Networks (MRN) that discover the task relationships based on novel tensor normal priors over parameter tensors of multiple task-specific layers in deep convolutional networks. By jointly learning transferable features and multilinear relationships of tasks and features, MRN is able to alleviate the dilemma of negative-transfer in the feature layers and under-transfer in the classifier layer. Experiments show that MRN yields state-of-the-art results on three multi-task learning datasets.},
+	urldate = {2019-12-25},
+	journal = {arXiv:1506.02117 [cs]},
+	author = {Long, Mingsheng and Cao, Zhangjie and Wang, Jianmin and Yu, Philip S.},
+	month = nov,
+	year = {2017},
+	note = {arXiv: 1506.02117},
+	keywords = {Computer Science - Machine Learning, MutliTask},
+	annote = {Comment: NIPS 2017},
+	file = {Long et al_2017_Learning Multiple Tasks with Multilinear Relationship Networks.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\7FVD4WYH\\Long et al_2017_Learning Multiple Tasks with Multilinear Relationship Networks.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\87NEXG2V\\1506.html:text/html}
+}
+
+@article{darImageSynthesisMultiContrast2019,
+	title = {Image {Synthesis} in {Multi}-{Contrast} {MRI} {With} {Conditional} {Generative} {Adversarial} {Networks}},
+	volume = {38},
+	issn = {0278-0062, 1558-254X},
+	url = {https://ieeexplore.ieee.org/document/8653423/},
+	doi = {10.1109/TMI.2019.2901750},
+	language = {en},
+	number = {10},
+	urldate = {2019-12-25},
+	journal = {IEEE Transactions on Medical Imaging},
+	author = {Dar, Salman UH. and Yurt, Mahmut and Karacan, Levent and Erdem, Aykut and Erdem, Erkut and Cukur, Tolga},
+	month = oct,
+	year = {2019},
+	pages = {2375--2388},
+	file = {Dar 等。 - 2019 - Image Synthesis in Multi-Contrast MRI With Conditi.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\2WAIAWDH\\Dar 等。 - 2019 - Image Synthesis in Multi-Contrast MRI With Conditi.pdf:application/pdf}
+}
+
+@article{sharmaMissingMRIPulse2019,
+	title = {Missing {MRI} {Pulse} {Sequence} {Synthesis} using {Multi}-{Modal} {Generative} {Adversarial} {Network}},
+	url = {http://arxiv.org/abs/1904.12200},
+	abstract = {Magnetic resonance imaging (MRI) is being increasingly utilized to assess, diagnose, and plan treatment for a variety of diseases. The ability to visualize tissue in varied contrasts in the form of MR pulse sequences in a single scan provides valuable insights to physicians, as well as enabling automated systems performing downstream analysis. However many issues like prohibitive scan time, image corruption, different acquisition protocols, or allergies to certain contrast materials may hinder the process of acquiring multiple sequences for a patient. This poses challenges to both physicians and automated systems since complementary information provided by the missing sequences is lost. In this paper, we propose a variant of generative adversarial network (GAN) capable of leveraging redundant information contained within multiple available sequences in order to generate one or more missing sequences for a patient scan. The proposed network is designed as a multi-input, multi-output network which combines information from all the available pulse sequences, implicitly infers which sequences are missing, and synthesizes the missing ones in a single forward pass. We demonstrate and validate our method on two brain MRI datasets each with four sequences, and show the applicability of the proposed method in simultaneously synthesizing all missing sequences in any possible scenario where either one, two, or three of the four sequences may be missing. We compare our approach with competing unimodal and multi-modal methods, and show that we outperform both quantitatively and qualitatively.},
+	urldate = {2019-12-25},
+	journal = {arXiv:1904.12200 [cs, eess, stat]},
+	author = {Sharma, Anmol and Hamarneh, Ghassan},
+	month = oct,
+	year = {2019},
+	note = {arXiv: 1904.12200},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition, Computer Science - Artificial Intelligence, Computer Science - Machine Learning, Statistics - Machine Learning, Electrical Engineering and Systems Science - Image and Video Processing},
+	annote = {Comment: Accepted for publication in IEEE Transactions on Medical Imaging},
+	file = {Sharma_Hamarneh_2019_Missing MRI Pulse Sequence Synthesis using Multi-Modal Generative Adversarial.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\SRXUWNH8\\Sharma_Hamarneh_2019_Missing MRI Pulse Sequence Synthesis using Multi-Modal Generative Adversarial.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\TYXXARAI\\1904.html:text/html}
+}
+
+@inproceedings{pandeAdversarialApproachDiscriminative2019,
+	title = {An {Adversarial} {Approach} to {Discriminative} {Modality} {Distillation} for {Remote} {Sensing} {Image} {Classification}},
+	url = {http://openaccess.thecvf.com/content_ICCVW_2019/html/CROMOL/Pande_An_Adversarial_Approach_to_Discriminative_Modality_Distillation_for_Remote_Sensing_ICCVW_2019_paper.html},
+	urldate = {2019-12-25},
+	author = {Pande, Shivam and Banerjee, Avinandan and Kumar, Saurabh and Banerjee, Biplab and Chaudhuri, Subhasis},
+	year = {2019},
+	keywords = {1\_emphasis, 6\_read later},
+	pages = {0--0},
+	file = {Pande et al_2019_An Adversarial Approach to Discriminative Modality Distillation for Remote.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\CCQUNIWX\\Pande et al_2019_An Adversarial Approach to Discriminative Modality Distillation for Remote.pdf:application/pdf;Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\8DEEWIMP\\Pande_An_Adversarial_Approach_to_Discriminative_Modality_Distillation_for_Remote_Sensing_ICCVW_.html:text/html}
+}
+
+@article{zhangTransferAdaptationLearning2019,
+	title = {Transfer {Adaptation} {Learning}: {A} {Decade} {Survey}},
+	shorttitle = {Transfer {Adaptation} {Learning}},
+	url = {http://arxiv.org/abs/1903.04687},
+	abstract = {The world we see is ever-changing and it always changes with people, things, and the environment. Domain is referred to as the state of the world at a certain moment. A research problem is characterized as domain transfer adaptation when it needs knowledge correspondence between different moments. Conventional machine learning aims to find a model with the minimum expected risk on test data by minimizing the regularized empirical risk on the training data, which, however, supposes that the training and test data share similar joint probability distribution. Transfer adaptation learning aims to build models that can perform tasks of target domain by learning knowledge from a semantic related but distribution different source domain. It is an energetic research filed of increasing influence and importance. This paper surveys the recent advances in transfer adaptation learning methodology and potential benchmarks. Broader challenges being faced by transfer adaptation learning researchers are identified, i.e., instance re-weighting adaptation, feature adaptation, classifier adaptation, deep network adaptation, and adversarial adaptation, which are beyond the early semi-supervised and unsupervised split. The survey provides researchers a framework for better understanding and identifying the research status, challenges and future directions of the field.},
+	urldate = {2019-12-26},
+	journal = {arXiv:1903.04687 [cs]},
+	author = {Zhang, Lei},
+	month = mar,
+	year = {2019},
+	note = {arXiv: 1903.04687},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition},
+	annote = {Comment: 21 pages, 3 figures},
+	file = {Zhang_2019_Transfer Adaptation Learning.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\IU2JSVGN\\Zhang_2019_Transfer Adaptation Learning.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\SP67QT2N\\1903.html:text/html}
+}
+
+@article{hintonDistillingKnowledgeNeural2015,
+	title = {Distilling the {Knowledge} in a {Neural} {Network}},
+	url = {http://arxiv.org/abs/1503.02531},
+	abstract = {A very simple way to improve the performance of almost any machine learning algorithm is to train many different models on the same data and then to average their predictions. Unfortunately, making predictions using a whole ensemble of models is cumbersome and may be too computationally expensive to allow deployment to a large number of users, especially if the individual models are large neural nets. Caruana and his collaborators have shown that it is possible to compress the knowledge in an ensemble into a single model which is much easier to deploy and we develop this approach further using a different compression technique. We achieve some surprising results on MNIST and we show that we can significantly improve the acoustic model of a heavily used commercial system by distilling the knowledge in an ensemble of models into a single model. We also introduce a new type of ensemble composed of one or more full models and many specialist models which learn to distinguish fine-grained classes that the full models confuse. Unlike a mixture of experts, these specialist models can be trained rapidly and in parallel.},
+	urldate = {2019-12-26},
+	journal = {arXiv:1503.02531 [cs, stat]},
+	author = {Hinton, Geoffrey and Vinyals, Oriol and Dean, Jeff},
+	month = mar,
+	year = {2015},
+	note = {arXiv: 1503.02531},
+	keywords = {Computer Science - Machine Learning, Statistics - Machine Learning, Computer Science - Neural and Evolutionary Computing},
+	annote = {Comment: NIPS 2014 Deep Learning Workshop},
+	file = {Hinton et al_2015_Distilling the Knowledge in a Neural Network.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\3HURGATT\\Hinton et al_2015_Distilling the Knowledge in a Neural Network.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\YDC2ELZX\\1503.html:text/html}
+}
+
+@article{longFullyConvolutionalNetworks,
+	title = {Fully {Convolutional} {Networks} for {Semantic} {Segmentation}},
+	abstract = {Convolutional networks are powerful visual models that yield hierarchies of features. We show that convolutional networks by themselves, trained end-to-end, pixelsto-pixels, exceed the state-of-the-art in semantic segmentation. Our key insight is to build “fully convolutional” networks that take input of arbitrary size and produce correspondingly-sized output with efﬁcient inference and learning. We deﬁne and detail the space of fully convolutional networks, explain their application to spatially dense prediction tasks, and draw connections to prior models. We adapt contemporary classiﬁcation networks (AlexNet [22], the VGG net [34], and GoogLeNet [35]) into fully convolutional networks and transfer their learned representations by ﬁne-tuning [5] to the segmentation task. We then deﬁne a skip architecture that combines semantic information from a deep, coarse layer with appearance information from a shallow, ﬁne layer to produce accurate and detailed segmentations. Our fully convolutional network achieves stateof-the-art segmentation of PASCAL VOC (20\% relative improvement to 62.2\% mean IU on 2012), NYUDv2, and SIFT Flow, while inference takes less than one ﬁfth of a second for a typical image.},
+	language = {en},
+	author = {Long, Jonathan and Shelhamer, Evan and Darrell, Trevor},
+	pages = {10},
+	file = {Long 等。 - Fully Convolutional Networks for Semantic Segmenta.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\KBKZSARC\\Long 等。 - Fully Convolutional Networks for Semantic Segmenta.pdf:application/pdf}
+}
+
+@article{ronnebergerUNetConvolutionalNetworks2015,
+	title = {U-{Net}: {Convolutional} {Networks} for {Biomedical} {Image} {Segmentation}},
+	shorttitle = {U-{Net}},
+	url = {http://arxiv.org/abs/1505.04597},
+	abstract = {There is large consent that successful training of deep networks requires many thousand annotated training samples. In this paper, we present a network and training strategy that relies on the strong use of data augmentation to use the available annotated samples more efficiently. The architecture consists of a contracting path to capture context and a symmetric expanding path that enables precise localization. We show that such a network can be trained end-to-end from very few images and outperforms the prior best method (a sliding-window convolutional network) on the ISBI challenge for segmentation of neuronal structures in electron microscopic stacks. Using the same network trained on transmitted light microscopy images (phase contrast and DIC) we won the ISBI cell tracking challenge 2015 in these categories by a large margin. Moreover, the network is fast. Segmentation of a 512x512 image takes less than a second on a recent GPU. The full implementation (based on Caffe) and the trained networks are available at http://lmb.informatik.uni-freiburg.de/people/ronneber/u-net .},
+	urldate = {2019-12-26},
+	journal = {arXiv:1505.04597 [cs]},
+	author = {Ronneberger, Olaf and Fischer, Philipp and Brox, Thomas},
+	month = may,
+	year = {2015},
+	note = {arXiv: 1505.04597},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition},
+	annote = {Comment: conditionally accepted at MICCAI 2015},
+	file = {Ronneberger et al_2015_U-Net.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\8IFV66CA\\Ronneberger et al_2015_U-Net.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\EB6K7RW4\\1505.html:text/html}
+}
+
+@article{kamnitsasEnsemblesMultipleModels2017,
+	title = {Ensembles of {Multiple} {Models} and {Architectures} for {Robust} {Brain} {Tumour} {Segmentation}},
+	url = {http://arxiv.org/abs/1711.01468},
+	abstract = {Deep learning approaches such as convolutional neural nets have consistently outperformed previous methods on challenging tasks such as dense, semantic segmentation. However, the various proposed networks perform differently, with behaviour largely influenced by architectural choices and training settings. This paper explores Ensembles of Multiple Models and Architectures (EMMA) for robust performance through aggregation of predictions from a wide range of methods. The approach reduces the influence of the meta-parameters of individual models and the risk of overfitting the configuration to a particular database. EMMA can be seen as an unbiased, generic deep learning model which is shown to yield excellent performance, winning the first position in the BRATS 2017 competition among 50+ participating teams.},
+	urldate = {2019-12-26},
+	journal = {arXiv:1711.01468 [cs]},
+	author = {Kamnitsas, Konstantinos and Bai, Wenjia and Ferrante, Enzo and McDonagh, Steven and Sinclair, Matthew and Pawlowski, Nick and Rajchl, Martin and Lee, Matthew and Kainz, Bernhard and Rueckert, Daniel and Glocker, Ben},
+	month = nov,
+	year = {2017},
+	note = {arXiv: 1711.01468},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition, Computer Science - Artificial Intelligence, Computer Science - Machine Learning},
+	annote = {Comment: The method won the 1st-place in the Brain Tumour Segmentation (BRATS) 2017 competition (segmentation task)},
+	file = {Kamnitsas et al_2017_Ensembles of Multiple Models and Architectures for Robust Brain Tumour.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\E6N5T5IU\\Kamnitsas et al_2017_Ensembles of Multiple Models and Architectures for Robust Brain Tumour.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\4BTCTFQF\\1711.html:text/html}
+}
+
+@incollection{ShenDuXueXiHuaShuZhongWenBan2019,
+	title = {深度学习（花书）中文版},
+	url = {https://github.com/exacity/deeplearningbook-chinese},
+	abstract = {Deep Learning Book Chinese Translation. Contribute to exacity/deeplearningbook-chinese development by creating an account on GitHub.},
+	urldate = {2019-12-28},
+	publisher = {Exacity},
+	month = dec,
+	year = {2019},
+	note = {original-date: 2016-12-07T11:46:51Z},
+	file = {2019_深度学习（花书）中文版.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\6XY8MBXA\\2019_深度学习（花书）中文版.pdf:application/pdf}
+}
+
+@article{liuStructuredKnowledgeDistillation2019,
+	title = {Structured {Knowledge} {Distillation} for {Dense} {Prediction}},
+	url = {http://arxiv.org/abs/1903.04197},
+	abstract = {In this paper, we consider transferring the structure information from large networks to small ones for dense prediction tasks. Previous knowledge distillation strategies used for dense prediction tasks often directly borrow the distillation scheme for image classiﬁcation and perform knowledge distillation for each pixel separately, leading to sub-optimal performance. Here we propose to distill structured knowledge from large networks to small networks, taking into account the fact that dense prediction is a structured prediction problem. Speciﬁcally, we study two structured distillation schemes: i) pair-wise distillation that distills the pairwise similarities by building a static graph; and ii) holistic distillation that uses adversarial training to distill holistic knowledge. The effectiveness of our knowledge distillation approaches is demonstrated by extensive experiments on three dense prediction tasks: semantic segmentation, depth estimation and object detection.},
+	language = {en},
+	urldate = {2020-01-09},
+	journal = {arXiv:1903.04197 [cs]},
+	author = {Liu, Yifan and Shun, Changyong and Wang, Jingdong and Shen, Chunhua},
+	month = dec,
+	year = {2019},
+	note = {arXiv: 1903.04197},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition},
+	annote = {Comment: v1:10 pages cvpr2019 accepted; v2:15 pages for a journal version; Code is available at: https://github.com/irfanICMLL/structure\_knowledge\_distillation},
+	file = {Liu et al_2019_Structured Knowledge Distillation for Dense Prediction.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\KTVCNJQB\\Liu et al_2019_Structured Knowledge Distillation for Dense Prediction.pdf:application/pdf}
+}
+
+@article{liuStructuredKnowledgeDistillation,
+	title = {Structured {Knowledge} {Distillation} for {Semantic} {Segmentation}},
+	abstract = {In this paper, we investigate the knowledge distillation strategy for training small semantic segmentation networks by making use of large networks. We start from the straightforward scheme, pixel-wise distillation, which applies the distillation scheme adopted for image classiﬁcation and performs knowledge distillation for each pixel separately. We further propose to distill the structured knowledge from large networks to small networks, which is motivated by that semantic segmentation is a structured prediction problem. We study two structured distillation schemes: (i) pair-wise distillation that distills the pairwise similarities, and (ii) holistic distillation that uses GAN to distill holistic knowledge. The effectiveness of our knowledge distillation approaches is demonstrated by extensive experiments on three scene parsing datasets: Cityscapes, Camvid and ADE20K.},
+	language = {en},
+	author = {Liu, Yifan and Chen, Ke and Liu, Chris and Qin, Zengchang and Luo, Zhenbo and Wang, Jingdong},
+	keywords = {1\_emphasis},
+	pages = {10},
+	file = {Liu et al_Structured Knowledge Distillation for Semantic Segmentation.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\K9SQISRM\\Liu et al_Structured Knowledge Distillation for Semantic Segmentation.pdf:application/pdf}
+}
+
+@article{bousmalisDomainSeparationNetworks2016,
+	title = {Domain {Separation} {Networks}},
+	url = {https://arxiv.org/abs/1608.06019v1},
+	abstract = {The cost of large scale data collection and annotation often makes the
+application of machine learning algorithms to new tasks or datasets
+prohibitively expensive. One approach circumventing this cost is training
+models on synthetic data where annotations are provided automatically. Despite
+their appeal, such models often fail to generalize from synthetic to real
+images, necessitating domain adaptation algorithms to manipulate these models
+before they can be successfully applied. Existing approaches focus either on
+mapping representations from one domain to the other, or on learning to extract
+features that are invariant to the domain from which they were extracted.
+However, by focusing only on creating a mapping or shared representation
+between the two domains, they ignore the individual characteristics of each
+domain. We suggest that explicitly modeling what is unique to each domain can
+improve a model's ability to extract domain-invariant features. Inspired by
+work on private-shared component analysis, we explicitly learn to extract image
+representations that are partitioned into two subspaces: one component which is
+private to each domain and one which is shared across domains. Our model is
+trained not only to perform the task we care about in the source domain, but
+also to use the partitioned representation to reconstruct the images from both
+domains. Our novel architecture results in a model that outperforms the
+state-of-the-art on a range of unsupervised domain adaptation scenarios and
+additionally produces visualizations of the private and shared representations
+enabling interpretation of the domain adaptation process.},
+	language = {en},
+	urldate = {2020-01-21},
+	author = {Bousmalis, Konstantinos and Trigeorgis, George and Silberman, Nathan and Krishnan, Dilip and Erhan, Dumitru},
+	month = aug,
+	year = {2016},
+	keywords = {3\_reading},
+	file = {Bousmalis et al_2016_Domain Separation Networks.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\7ZJXD8YB\\Bousmalis et al_2016_Domain Separation Networks.pdf:application/pdf;Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\T9APAYIE\\1608.html:text/html}
+}
+
+@article{benaimDomainIntersectionDomain2019,
+	title = {Domain {Intersection} and {Domain} {Difference}},
+	url = {https://arxiv.org/abs/1908.11628v1},
+	abstract = {We present a method for recovering the shared content between two visual
+domains as well as the content that is unique to each domain. This allows us to
+map from one domain to the other, in a way in which the content that is
+specific for the first domain is removed and the content that is specific for
+the second is imported from any image in the second domain. In addition, our
+method enables generation of images from the intersection of the two domains as
+well as their union, despite having no such samples during training. The method
+is shown analytically to contain all the sufficient and necessary constraints.
+It also outperforms the literature methods in an extensive set of experiments.
+Our code is available at
+https://github.com/sagiebenaim/DomainIntersectionDifference.},
+	language = {en},
+	urldate = {2020-01-21},
+	author = {Benaim, Sagie and Khaitov, Michael and Galanti, Tomer and Wolf, Lior},
+	month = aug,
+	year = {2019},
+	keywords = {3\_reading},
+	file = {Benaim et al_2019_Domain Intersection and Domain Difference.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\7SRUQK9S\\7SRUQK9S.pdf:application/pdf;Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\JPMTMUKE\\1908.html:text/html}
+}
+
+@article{chenIsolatingSourcesDisentanglement2018,
+	title = {Isolating {Sources} of {Disentanglement} in {Variational} {Autoencoders}},
+	url = {https://arxiv.org/abs/1802.04942v5},
+	abstract = {We decompose the evidence lower bound to show the existence of a term
+measuring the total correlation between latent variables. We use this to
+motivate our \$β\$-TCVAE (Total Correlation Variational Autoencoder), a
+refinement of the state-of-the-art \$β\$-VAE objective for learning
+disentangled representations, requiring no additional hyperparameters during
+training. We further propose a principled classifier-free measure of
+disentanglement called the mutual information gap (MIG). We perform extensive
+quantitative and qualitative experiments, in both restricted and non-restricted
+settings, and show a strong relation between total correlation and
+disentanglement, when the latent variables model is trained using our
+framework.},
+	language = {en},
+	urldate = {2020-01-21},
+	author = {Chen, Ricky T. Q. and Li, Xuechen and Grosse, Roger and Duvenaud, David},
+	month = feb,
+	year = {2018},
+	keywords = {3\_reading},
+	file = {Chen et al_2018_Isolating Sources of Disentanglement in Variational Autoencoders.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\YAAXVJU2\\Chen et al_2018_Isolating Sources of Disentanglement in Variational Autoencoders.pdf:application/pdf;Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\YYEPJ86D\\1802.html:text/html}
+}
+
+@article{chartsiasMultimodalMRSynthesis2018a,
+	title = {Multimodal {MR} {Synthesis} via {Modality}-{Invariant} {Latent} {Representation}},
+	volume = {37},
+	issn = {0278-0062},
+	url = {https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5904017/},
+	doi = {10.1109/TMI.2017.2764326},
+	abstract = {We propose a multi-input multi-output fully convolutional neural network model for MRI synthesis. The model is robust to missing data, as it benefits from, but does not require, additional input modalities. The model is trained end-to-end, and learns to embed all input modalities into a shared modality-invariant latent space. These latent representations are then combined into a single fused representation, which is transformed into the target output modality with a learnt decoder. We avoid the need for curriculum learning by exploiting the fact that the various input modalities are highly correlated. We also show that by incorporating information from segmentation masks the model can both decrease its error and generate data with synthetic lesions. We evaluate our model on the ISLES and BRATS datasets and demonstrate statistically significant improvements over state-of-the-art methods for single input tasks. This improvement increases further when multiple input modalities are used, demonstrating the benefits of learning a common latent space, again resulting in a statistically significant improvement over the current best method. Lastly, we demonstrate our approach on non skull-stripped brain images, producing a statistically significant improvement over the previous best method. Code is made publicly available at https://github.com/agis85/multimodal brain synthesis.},
+	number = {3},
+	urldate = {2020-02-06},
+	journal = {IEEE transactions on medical imaging},
+	author = {Chartsias, Agisilaos and Joyce, Thomas and Giuffrida, Mario Valerio and Tsaftaris, Sotirios A.},
+	month = mar,
+	year = {2018},
+	pmid = {29053447},
+	pmcid = {PMC5904017},
+	pages = {803--814},
+	file = {PubMed Central Full Text PDF:C\:\\Users\\loic-razer\\Zotero\\storage\\4LCXH828\\Chartsias 等。 - 2018 - Multimodal MR Synthesis via Modality-Invariant Lat.pdf:application/pdf}
+}
+
+@inproceedings{yeGliomaGradingBased2017,
+	title = {Glioma grading based on {3D} multimodal convolutional neural network and privileged learning},
+	doi = {10.1109/BIBM.2017.8217751},
+	abstract = {Brain tumors, especially high-grade gliomas, are one of the most lethal cancers for humankind today. Early and accurate diagnosis of tumor grading is the key for subsequent therapy and treatment. In the past, conventional computer-aided diagnosis relies on handcrafted features from magnetic resonance images (MRI), which are usually inaccurate and laborious. Recently, deep neural networks have been developed and applied for tumor segmentation and classification. However, most existing methods consider 3D MRI as a series of 2D images and use a simple modality fusion method via feature concatenation. In this paper, we propose an end-to-end 3-dimensional convolutional neural network (3D CNN) with gated multimodal unit (GMU) fusion to integrate the information both in three dimensions and in multiple modalities. Specifically, 3D convolutional kernels are directly applied to the whole MRI images, gathering the abnormalities in sagittal, axial and coronal directions. GMU with hidden states is proposed to fuse the information of multiple MRI modalities in both feature and decision level. Based on these, privilege information extracted by GMU fusion model is utilized to train a novel network called distilled-CNN, which significantly improves the performance of classification using single modality. Empirical studies on BRATS datasets corroborate the effectiveness of the proposed 3D CNN with GMU fusion and distilled-CNN to distinguish benign gliomas and malignant gliomas.},
+	booktitle = {2017 {IEEE} {International} {Conference} on {Bioinformatics} and {Biomedicine} ({BIBM})},
+	author = {Ye, Fangyan and Pu, Jian and Wang, Jun and Li, Yuxin and Zha, Hongyuan},
+	month = nov,
+	year = {2017},
+	note = {ISSN: null},
+	keywords = {biomedical MRI, image segmentation, Image segmentation, learning (artificial intelligence), medical image processing, MRI, neural nets, Training, brain, convolution, tumours, deep neural networks, image classification, Three-dimensional displays, feature extraction, 3\_reading, 3-dimensional convolutional neural network, 3D CNN, 3D convolutional kernels, 3D multimodal convolutional neural network, accurate diagnosis, benign gliomas, brain tumor, brain tumors, cancer, classification, conventional computer, Convolution, coronal directions, feature concatenation, gated multimodal unit, gated multimodal unit fusion, glioma grading, GMU fusion model, handcrafted features, high-grade gliomas, Kernel, lethal cancers, magnetic resonance images, malignant gliomas, MRI images, multimodal fusion, multiple modalities, multiple MRI modalities, privilege information, privileged learning, simple modality fusion method, single modality, subsequent therapy, tumor grading, tumor segmentation, Tumors},
+	pages = {759--763},
+	file = {Ye et al_2017_Glioma grading based on 3D multimodal convolutional neural network and.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\V6B53TC3\\Ye et al_2017_Glioma grading based on 3D multimodal convolutional neural network and.pdf:application/pdf;IEEE Xplore Abstract Record:C\:\\Users\\loic-razer\\Zotero\\storage\\SPVEPEAA\\8217751.html:text/html}
+}
+
+@article{wangCollaborativeLearningWeakly2018,
+	title = {Collaborative {Learning} for {Weakly} {Supervised} {Object} {Detection}},
+	url = {http://arxiv.org/abs/1802.03531},
+	abstract = {Weakly supervised object detection has recently received much attention, since it only requires image-level labels instead of the bounding-box labels consumed in strongly supervised learning. Nevertheless, the save in labeling expense is usually at the cost of model accuracy. In this paper, we propose a simple but effective weakly supervised collaborative learning framework to resolve this problem, which trains a weakly supervised learner and a strongly supervised learner jointly by enforcing partial feature sharing and prediction consistency. For object detection, taking WSDDN-like architecture as weakly supervised detector sub-network and Faster-RCNN-like architecture as strongly supervised detector sub-network, we propose an end-to-end Weakly Supervised Collaborative Detection Network. As there is no strong supervision available to train the Faster-RCNN-like sub-network, a new prediction consistency loss is defined to enforce consistency of predictions between the two sub-networks as well as within the Faster-RCNN-like sub-networks. At the same time, the two detectors are designed to partially share features to further guarantee the model consistency at perceptual level. Extensive experiments on PASCAL VOC 2007 and 2012 data sets have demonstrated the effectiveness of the proposed framework.},
+	urldate = {2020-02-09},
+	journal = {arXiv:1802.03531 [cs]},
+	author = {Wang, Jiajie and Yao, Jiangchao and Zhang, Ya and Zhang, Rui},
+	month = feb,
+	year = {2018},
+	note = {arXiv: 1802.03531},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition},
+	file = {Wang et al_2018_Collaborative Learning for Weakly Supervised Object Detection.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\TW6X4LCE\\Wang et al_2018_Collaborative Learning for Weakly Supervised Object Detection.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\9MTME4YJ\\1802.html:text/html}
+}
+
+@article{ibtehazMultiResUNetRethinkingUNet2020b,
+	title = {{MultiResUNet} : {Rethinking} the {U}-{Net} {Architecture} for {Multimodal} {Biomedical} {Image} {Segmentation}},
+	volume = {121},
+	issn = {08936080},
+	shorttitle = {{MultiResUNet}},
+	url = {http://arxiv.org/abs/1902.04049},
+	doi = {10.1016/j.neunet.2019.08.025},
+	abstract = {In recent years Deep Learning has brought about a breakthrough in Medical Image Segmentation. U-Net is the most prominent deep network in this regard, which has been the most popular architecture in the medical imaging community. Despite outstanding overall performance in segmenting multimodal medical images, from extensive experimentations on challenging datasets, we found out that the classical U-Net architecture seems to be lacking in certain aspects. Therefore, we propose some modifications to improve upon the already state-of-the-art U-Net model. Hence, following the modifications we develop a novel architecture MultiResUNet as the potential successor to the successful U-Net architecture. We have compared our proposed architecture MultiResUNet with the classical U-Net on a vast repertoire of multimodal medical images. Albeit slight improvements in the cases of ideal images, a remarkable gain in performance has been attained for challenging images. We have evaluated our model on five different datasets, each with their own unique challenges, and have obtained a relative improvement in performance of 10.15\%, 5.07\%, 2.63\%, 1.41\%, and 0.62\% respectively.},
+	urldate = {2020-02-12},
+	journal = {Neural Networks},
+	author = {Ibtehaz, Nabil and Rahman, M. Sohel},
+	month = jan,
+	year = {2020},
+	note = {arXiv: 1902.04049},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition},
+	pages = {74--87},
+	file = {Ibtehaz_Rahman_2020_MultiResUNet.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\8I3KSEKG\\Ibtehaz_Rahman_2020_MultiResUNet.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\QMJGVQAB\\1902.html:text/html}
+}
+
+@article{simpsonLargeAnnotatedMedical2019,
+	title = {A large annotated medical image dataset for the development and evaluation of segmentation algorithms},
+	url = {http://arxiv.org/abs/1902.09063},
+	abstract = {Semantic segmentation of medical images aims to associate a pixel with a label in a medical image without human initialization. The success of semantic segmentation algorithms is contingent on the availability of high-quality imaging data with corresponding labels provided by experts. We sought to create a large collection of annotated medical image datasets of various clinically relevant anatomies available under open source license to facilitate the development of semantic segmentation algorithms. Such a resource would allow: 1) objective assessment of general-purpose segmentation methods through comprehensive benchmarking and 2) open and free access to medical image data for any researcher interested in the problem domain. Through a multi-institutional effort, we generated a large, curated dataset representative of several highly variable segmentation tasks that was used in a crowd-sourced challenge - the Medical Segmentation Decathlon held during the 2018 Medical Image Computing and Computer Aided Interventions Conference in Granada, Spain. Here, we describe these ten labeled image datasets so that these data may be effectively reused by the research community.},
+	urldate = {2020-02-14},
+	journal = {arXiv:1902.09063 [cs, eess]},
+	author = {Simpson, Amber L. and Antonelli, Michela and Bakas, Spyridon and Bilello, Michel and Farahani, Keyvan and van Ginneken, Bram and Kopp-Schneider, Annette and Landman, Bennett A. and Litjens, Geert and Menze, Bjoern and Ronneberger, Olaf and Summers, Ronald M. and Bilic, Patrick and Christ, Patrick F. and Do, Richard K. G. and Gollub, Marc and Golia-Pernicka, Jennifer and Heckers, Stephan H. and Jarnagin, William R. and McHugo, Maureen K. and Napel, Sandy and Vorontsov, Eugene and Maier-Hein, Lena and Cardoso, M. Jorge},
+	month = feb,
+	year = {2019},
+	note = {arXiv: 1902.09063},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition, Electrical Engineering and Systems Science - Image and Video Processing},
+	file = {Simpson et al_2019_A large annotated medical image dataset for the development and evaluation of.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\FDLAZ4PB\\Simpson et al_2019_A large annotated medical image dataset for the development and evaluation of.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\97T49J47\\1902.html:text/html}
+}
+
+@incollection{wangKDGANKnowledgeDistillation2018,
+	title = {{KDGAN}: {Knowledge} {Distillation} with {Generative} {Adversarial} {Networks}},
+	shorttitle = {{KDGAN}},
+	url = {http://papers.nips.cc/paper/7358-kdgan-knowledge-distillation-with-generative-adversarial-networks.pdf},
+	urldate = {2020-02-16},
+	booktitle = {Advances in {Neural} {Information} {Processing} {Systems} 31},
+	publisher = {Curran Associates, Inc.},
+	author = {Wang, Xiaojie and Zhang, Rui and Sun, Yu and Qi, Jianzhong},
+	editor = {Bengio, S. and Wallach, H. and Larochelle, H. and Grauman, K. and Cesa-Bianchi, N. and Garnett, R.},
+	year = {2018},
+	pages = {775--786},
+	file = {Wang et al_2018_KDGAN.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\CL43KKG5\\Wang et al_2018_KDGAN.pdf:application/pdf;NIPS Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\BJZKNSR7\\7358-kdgan-knowledge-distillation-with-generative-adversarial-networks.html:text/html}
+}
+
+@inproceedings{liDomainGeneralizationAdversarial2018,
+	title = {Domain {Generalization} with {Adversarial} {Feature} {Learning}},
+	doi = {10.1109/CVPR.2018.00566},
+	abstract = {In this paper, we tackle the problem of domain generalization: how to learn a generalized feature representation for an "unseen" target domain by taking the advantage of multiple seen source-domain data. We present a novel framework based on adversarial autoencoders to learn a generalized latent feature representation across domains for domain generalization. To be specific, we extend adversarial autoencoders by imposing the Maximum Mean Discrepancy (MMD) measure to align the distributions among different domains, and matching the aligned distribution to an arbitrary prior distribution via adversarial feature learning. In this way, the learned feature representation is supposed to be universal to the seen source domains because of the MMD regularization, and is expected to generalize well on the target domain because of the introduction of the prior distribution. We proposed an algorithm to jointly train different components of our proposed framework. Extensive experiments on various vision tasks demonstrate that our proposed framework can learn better generalized features for the unseen target domain compared with state-of-the-art domain generalization methods.},
+	booktitle = {2018 {IEEE}/{CVF} {Conference} on {Computer} {Vision} and {Pattern} {Recognition}},
+	author = {Li, Haoliang and Pan, Sinno Jialin and Wang, Shiqi and Kot, Alex C.},
+	month = jun,
+	year = {2018},
+	note = {ISSN: 1063-6919},
+	keywords = {Decoding, learning (artificial intelligence), Training, Adaptation models, adversarial autoencoders, adversarial feature learning, computer vision, Data models, Gallium nitride, generalized feature representation, generalized features, generalized latent feature representation, learned feature representation, maximum mean discrepancy measure, MMD regularization, Predictive models, source domains, source-domain data, state-of-the-art domain generalization methods, Training data, unseen target domain, vision tasks},
+	pages = {5400--5409},
+	file = {Li et al_2018_Domain Generalization with Adversarial Feature Learning.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\KFTQD7SL\\Li et al_2018_Domain Generalization with Adversarial Feature Learning.pdf:application/pdf;IEEE Xplore Abstract Record:C\:\\Users\\loic-razer\\Zotero\\storage\\SL9JPP9R\\8578664.html:text/html}
+}
+
+@misc{IEEEXploreFullText,
+	title = {{IEEE} {Xplore} {Full}-{Text} {PDF}:},
+	url = {https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8578664},
+	urldate = {2020-02-17},
+	file = {IEEE Xplore Full-Text PDF\::C\:\\Users\\loic-razer\\Zotero\\storage\\3IJSSP7C\\stamp.html:text/html}
+}
+
+@article{yangMRICrossModalityNeuroImagetoNeuroImage2018,
+	title = {{MRI} {Cross}-{Modality} {NeuroImage}-to-{NeuroImage} {Translation}},
+	url = {http://arxiv.org/abs/1801.06940},
+	abstract = {We present a cross-modality generation framework that learns to generate translated modalities from given modalities in MR images without real acquisition. Our proposed method performs NeuroImage-to-NeuroImage translation (abbreviated as N2N) by means of a deep learning model that leverages conditional generative adversarial networks (cGANs). Our framework jointly exploits the low-level features (pixel-wise information) and high-level representations (e.g. brain tumors, brain structure like gray matter, etc.) between cross modalities which are important for resolving the challenging complexity in brain structures. Our framework can serve as an auxiliary method in clinical diagnosis and has great application potential. Based on our proposed framework, we first propose a method for cross-modality registration by fusing the deformation fields to adopt the cross-modality information from translated modalities. Second, we propose an approach for MRI segmentation, translated multichannel segmentation (TMS), where given modalities, along with translated modalities, are segmented by fully convolutional networks (FCN) in a multichannel manner. Both of these two methods successfully adopt the cross-modality information to improve the performance without adding any extra data. Experiments demonstrate that our proposed framework advances the state-of-the-art on five brain MRI datasets. We also observe encouraging results in cross-modality registration and segmentation on some widely adopted brain datasets. Overall, our work can serve as an auxiliary method in clinical diagnosis and be applied to various tasks in medical fields. Keywords: image-to-image, cross-modality, registration, segmentation, brain MRI},
+	urldate = {2020-02-17},
+	journal = {arXiv:1801.06940 [cs]},
+	author = {Yang, Qianye and Li, Nannan and Zhao, Zixu and Fan, Xingyu and Chang, Eric I.-Chao and Xu, Yan},
+	month = sep,
+	year = {2018},
+	note = {arXiv: 1801.06940},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition, 1\_emphasis},
+	annote = {Comment: 46 pages, 16 figures},
+	file = {Yang et al_2018_MRI Cross-Modality NeuroImage-to-NeuroImage Translation.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\C9JK6XAL\\Yang et al_2018_MRI Cross-Modality NeuroImage-to-NeuroImage Translation.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\UHQ3UQHY\\1801.html:text/html}
+}
+
+@article{ibtehazMultiResUNetRethinkingUNet2020,
+	title = {{MultiResUNet} : {Rethinking} the {U}-{Net} {Architecture} for {Multimodal} {Biomedical} {Image} {Segmentation}},
+	volume = {121},
+	issn = {08936080},
+	shorttitle = {{MultiResUNet}},
+	url = {http://arxiv.org/abs/1902.04049},
+	doi = {10.1016/j.neunet.2019.08.025},
+	abstract = {In recent years Deep Learning has brought about a breakthrough in Medical Image Segmentation. U-Net is the most prominent deep network in this regard, which has been the most popular architecture in the medical imaging community. Despite outstanding overall performance in segmenting multimodal medical images, from extensive experimentations on challenging datasets, we found out that the classical U-Net architecture seems to be lacking in certain aspects. Therefore, we propose some modifications to improve upon the already state-of-the-art U-Net model. Hence, following the modifications we develop a novel architecture MultiResUNet as the potential successor to the successful U-Net architecture. We have compared our proposed architecture MultiResUNet with the classical U-Net on a vast repertoire of multimodal medical images. Albeit slight improvements in the cases of ideal images, a remarkable gain in performance has been attained for challenging images. We have evaluated our model on five different datasets, each with their own unique challenges, and have obtained a relative improvement in performance of 10.15\%, 5.07\%, 2.63\%, 1.41\%, and 0.62\% respectively.},
+	urldate = {2020-02-20},
+	journal = {Neural Networks},
+	author = {Ibtehaz, Nabil and Rahman, M. Sohel},
+	month = jan,
+	year = {2020},
+	note = {arXiv: 1902.04049},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition},
+	pages = {74--87},
+	file = {Ibtehaz_Rahman_2020_MultiResUNet.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\JBJZ9MF6\\Ibtehaz_Rahman_2020_MultiResUNet.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\JB3G6GWY\\1902.html:text/html}
+}
+
+@article{sudreGeneralisedDiceOverlap2017,
+	title = {Generalised {Dice} overlap as a deep learning loss function for highly unbalanced segmentations},
+	volume = {10553},
+	url = {http://arxiv.org/abs/1707.03237},
+	doi = {10.1007/978-3-319-67558-9_28},
+	abstract = {Deep-learning has proved in recent years to be a powerful tool for image analysis and is now widely used to segment both 2D and 3D medical images. Deep-learning segmentation frameworks rely not only on the choice of network architecture but also on the choice of loss function. When the segmentation process targets rare observations, a severe class imbalance is likely to occur between candidate labels, thus resulting in sub-optimal performance. In order to mitigate this issue, strategies such as the weighted cross-entropy function, the sensitivity function or the Dice loss function, have been proposed. In this work, we investigate the behavior of these loss functions and their sensitivity to learning rate tuning in the presence of different rates of label imbalance across 2D and 3D segmentation tasks. We also propose to use the class re-balancing properties of the Generalized Dice overlap, a known metric for segmentation assessment, as a robust and accurate deep-learning loss function for unbalanced tasks.},
+	urldate = {2020-02-21},
+	journal = {arXiv:1707.03237 [cs]},
+	author = {Sudre, Carole H. and Li, Wenqi and Vercauteren, Tom and Ourselin, Sébastien and Cardoso, M. Jorge},
+	year = {2017},
+	note = {arXiv: 1707.03237},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition},
+	pages = {240--248},
+	file = {Sudre et al_2017_Generalised Dice overlap as a deep learning loss function for highly unbalanced.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\EC42KFAT\\Sudre et al_2017_Generalised Dice overlap as a deep learning loss function for highly unbalanced.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\LDANRTVV\\1707.html:text/html}
+}
+
+@incollection{zhangCPMNetsCrossPartial2019,
+	title = {{CPM}-{Nets}: {Cross} {Partial} {Multi}-{View} {Networks}},
+	shorttitle = {{CPM}-{Nets}},
+	url = {http://papers.nips.cc/paper/8346-cpm-nets-cross-partial-multi-view-networks.pdf},
+	urldate = {2020-02-23},
+	booktitle = {Advances in {Neural} {Information} {Processing} {Systems} 32},
+	publisher = {Curran Associates, Inc.},
+	author = {Zhang, Changqing and Han, Zongbo and cui, yajie and Fu, Huazhu and Zhou, Joey Tianyi and Hu, Qinghua},
+	editor = {Wallach, H. and Larochelle, H. and Beygelzimer, A. and Alché-Buc, F. d{\textbackslash}textquotesingle and Fox, E. and Garnett, R.},
+	year = {2019},
+	pages = {559--569},
+	file = {Zhang et al_2019_CPM-Nets.pdf:C\:\\Users\\loic-razer\\Zotero\\storage\\CVNH7BVP\\Zhang et al_2019_CPM-Nets.pdf:application/pdf;NIPS Snapshot:C\:\\Users\\loic-razer\\Zotero\\storage\\LFXW9ADI\\8346-cpm-nets-cross-partial-multi-view-networks.html:text/html}
+}
