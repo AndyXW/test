@@ -268,3 +268,4 @@ model = nn.Sequential(
 )
 opt = optim.SGD(model.parameters(), lr=lr, momentum=0.9)
 fit(epochs, model, loss_func, opt, train_dl, valid_dl)
+print("This is a new change in local")
